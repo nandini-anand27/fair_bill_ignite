@@ -1,0 +1,8 @@
+﻿Downloading Node.js from https://nodejs.org/dist/v20.11.0/node-v20.11.0-x64.msi...
+Saving to C:\Users\Inno\Downloads\node-v20.11.0-x64.msi
+Download complete.
+Installing Node.js silently...
+Install exit code: 1603
+Node check error: [WinError 2] The system cannot find the file specified
+npm check error: [WinError 2] The system cannot find the file specified
+Done.

@@ -1,0 +1,2322 @@
+
+================================================================================
+FILE: PRISM-P Problem Brief.pdf
+================================================================================
+
+
+--- Page 1 ---
+PRISM-P Problem Brief
+Initiative: Fair Bill, a hospital bill comparison tool for families in Bengaluru
+Company: SmartX Technologies | PRISM Phase: P – Problem Alignment | Project type:
+Web App
+Status: Draft for decision owner review | Draft date: 30 October 2026
+1. Problem Statement
+What is happening today
+Families in Bengaluru receive a hospital bill at the end of a normal delivery. The bill is
+either a long list of line items or a package total plus extras. Prices for the same procedure
+vary across hospitals, hospital types, and room categories, and a family has no way to see
+what comparable families actually paid. Existing Indian cost websites show estimated
+city-level price ranges for a procedure, and the AI bill-checking tools we found are built
+around US billing and insurance statements. In a limited scan we found no tool that
+compares a family’s own Indian hospital bill against real bills from comparable hospitals.
+This finding still needs to be validated.
+Why this is a problem
+Families pay all or part of the bill under time pressure, with no reference point to judge
+whether it is typical.
+Some price differences are justified (facilities, room category, doctor), and some are
+not (duplicate entries, items billed separately that are normally inside the package). A
+family cannot tell which is which.
+Unexpected charges tend to appear at discharge, when the family has the least time
+to ask questions.
+Who is impacted and how
+Patients and families (primary): may pay or accept unclear charges without asking
+questions.
+Insurers, TPAs, and employers (secondary): fund maternity claims and may lack an
+independent reference for what is typical. This needs validation.
+Hospitals (indirect): may face more questions about bills, and may resist a
+comparison tool.PRISM-P P roblem Brief
+Page 1 of 8
+
+--- Page 2 ---
+2. Business Objective
+Give families in Bengaluru a fast, evidence-based way to see whether a normal-delivery
+hospital bill is typical for comparable hospitals, and build a consented benchmark of real
+bills that can later be offered to payers.
+Primary objective for the first pilot: at least 25 families receive a bill comparison within
+60 seconds of upload, and at least 60% of them report that it gave them a specific charge
+to review or a question to ask the hospital.
+3. Success Metrics
+All targets below are proposals. No baseline exists yet, and the decision owner should
+confirm or revise them.
+Leading indicators (early signals)
+Lagging indicators (final outcomes)Indicator Target How measured
+Parent interviews completed At least 8 Interview notes
+Interviewed parents who did not
+review the bill in detail, or were
+surprised by at least one chargeAt least 50% Interview notes
+Consented, anonymized normal-
+delivery bills collectedAt least 15 before prototype
+testing, at least 30 before the pilotBenchmark
+records
+Hospital tiers represented in
+collected billsAll 3 (government, mid-size private,
+large private)Benchmark
+records
+Bills whose extracted line items
+add up to the printed total without
+manual correctionAt least 85% of a test set of 10 or
+more real billsTest log
+Time from upload to result 60 seconds or less for 95% of test
+uploadsTest log
+Indicator Target How measured
+Families completing a bill check in the pilot At least 25 Usage recordsPRISM-P P roblem Brief
+Page 2 of 8
+
+--- Page 3 ---
+4. Stakeholders & Decision Owner
+Decision Owner (single): [Name to be entered by the team]
+5. Current State (As-Is)
+A family receives the bill at discharge, as itemized lines or as a package total plus
+extras.Indicator Target How measured
+Pilot users who say the result gave them a question
+to ask or a charge to reviewAt least 60% Short post-use survey
+Comparison groups with 10 or more bills by the end
+of the pilotAt least 1 Benchmark records
+Payers (insurer, TPA, or employer HR) who agree to
+a pilot discussion or state intent to use the
+benchmarkAt least 2 Conversation notes
+Stakeholder Role Interest
+Patients and families in
+BengaluruPrimary users and bill
+contributorsKnow whether a bill is typical
+and what to ask
+Team Member 1 Bill reading, comparison logic,
+backendA working, accurate comparison
+Team Member 2 Data collection, interface,
+validation with parentsEnough consented bills and real
+user evidence
+Insurers, TPAs, and
+employersPotential future customers An independent reference for
+typical maternity bills
+Hospitals Affected parties, not users Fair, non-accusatory
+comparison
+PRISM gate reviewers
+and mentorsReview and approve Clear problem, evidence,
+feasible scopePRISM-P P roblem Brief
+Page 3 of 8
+
+--- Page 4 ---
+To judge it, families rely on word of mouth, the hospital’s own explanation, or cost
+websites that show city-level estimates.
+Insurers and employers may review claims internally. How they do this has not been
+validated.
+No step in the current process compares the family’s own bill with real bills from
+comparable hospitals.
+6. Pain Points
+Bills are long and use inconsistent item names, so families struggle to read them.
+Available price references are city-wide and mix very different kinds of hospitals.
+It is unclear what a package includes and what is billed on top of it.
+Families decide under time pressure at discharge.
+Families may hesitate to question the hospital that has just provided care.
+Real bill data is private, so there is no shared source of what comparable families paid.
+7. Constraints & Non-Negotiables
+Time: Limited. The first scope must be deliverable by a team of two. Final dates are to
+be confirmed at the PRISM gate.
+Budget: No dedicated budget is assumed. Free or low-cost tools only.
+Compliance: Bills are sensitive health-related documents. Consent is required before
+any bill is stored, personal identifiers must be removed, and deletion must be possible
+on request. Applicability of the Digital Personal Data Protection Act, 2023 is to be
+confirmed.
+Technology: Users must be able to use the product from a phone with a photo or PDF
+of a bill and nothing to install. Solution design is outside this brief.
+Integration limitations: No access to hospital or insurer systems. All data comes from
+users and public information.
+Non-negotiable: The comparison must never state or imply that a hospital
+overcharged or that one hospital is better than another in quality.PRISM-P P roblem Brief
+Page 4 of 8
+
+--- Page 5 ---
+8. Assumptions
+9. RisksID Assumption How to validate
+A1 Normal-delivery prices differ enough across
+comparable hospitals for a comparison to
+matterReview the first 15 collected bills
+A2 Hospitals can be grouped into a few tiers and
+room categories that explain most justified
+price differencesCheck the spread within each
+group
+A3 Enough families will share anonymized bills (30
+or more) through personal networksTrack response rates
+A4 Families will use the check at discharge or
+earlier, not only after payingParent interviews
+A5 Many delivery bills are package-based, so
+comparing totals and extras is meaningfulReview collected bills
+A6 Bill photos can be read accurately enough for
+comparisonTest on 10 or more bills
+A7 Payers would value an independent benchmark At least 2 conversations
+A8 Families paying out of pocket care more than
+those with cashless insuranceParent interviews
+Risk Impact Mitigation direction
+Too few bills for a
+credible comparisonUnreliable results Show how many bills each result
+uses, label limited data
+Wrong or unfair flags Loss of trust, hospital
+pushbackCompare like with like, use
+neutral wording
+Privacy breach or
+consent failureHarm to families, legal
+exposureExplicit consent, anonymization,
+minimal dataPRISM-P P roblem Brief
+Page 5 of 8
+
+--- Page 6 ---
+10. Out of Scope
+Procedures other than normal delivery
+Cities other than Bengaluru
+Hospital quality ratings or rankings
+Medical or legal advice
+Negotiating with hospitals or filing disputes on behalf of users
+Insurance claim processing
+Payments and user accounts
+Integration with hospital or insurer systems
+A dashboard or product for insurers, TPAs, and employers
+11. Open QuestionsRisk Impact Mitigation direction
+Low usage at discharge No traction Validate through interviews
+before building further
+Existing price sites add
+bill checkingWeaker differentiation Build the real-bill benchmark
+Result read as medical or
+legal adviceMisuse Clear notice that the comparison
+is about price only
+Problem not solved Families keep paying
+without a referenceProceed only if interviews
+confirm the pain
+# Question Owner
+1 Which Bengaluru hospitals belong in each tier? Team Member 2
+2 Do Bengaluru hospitals publish package rates
+and inclusions that can be used?Team Member 2
+3 What consent wording and retention period are
+acceptable?Decision Owner, with mentor
+reviewPRISM-P P roblem Brief
+Page 6 of 8
+
+--- Page 7 ---
+12. Approval
+13. AI Gold Prompt Mapping
+13.1 Approved AI tool(s) per template: Primary: ChatGPT. Secondary (language clarity
+and ambiguity detection): Claude or Gemini (optional).
+13.2 Tool used for this draft: Claude, based on inputs provided by the team. The Gold
+Prompt was not run verbatim. The team should confirm whether a re-run through the
+approved primary tool is required before the gate.
+13.3 Quality check
+Is the problem clearly articulated? Yes, see Section 1.
+Are success metrics measurable? Yes, see Section 3 (proposed targets).
+Is a single decision owner identified? Pending: the name must be entered in Section 4.
+13.4 Evidence for PRISM Gate (M0 → M1)# Question Owner
+4 Are Kannada-language bills common enough to
+require support?Team Member 2
+5 Can a family upload a bill for a patient other than
+themselves, and what permission is needed?Decision Owner
+6 What are the final timeline and pilot dates? Decision Owner
+7 Who is the single decision owner? Both team members
+Decision Owner Approval
+Name
+Signature / Approval
+DatePRISM-P P roblem Brief
+Page 7 of 8
+
+--- Page 8 ---
+Evidence Status
+Completed PRISM-P Problem Brief Drafted
+Success metrics defined Drafted, to be confirmed
+Assumptions and risks documented Drafted
+Decision owner sign-off PendingPRISM-P P roblem Brief
+Page 8 of 8
+
+================================================================================
+FILE: PRISM-R PRD-Lite.pdf
+================================================================================
+
+
+--- Page 1 ---
+PRISM-R PRD-Lite
+Initiative: Fair Bill, a hospital bill comparison tool for families in Bengaluru
+Company: SmartX Technologies | PRISM Phase: R – Requirements Freeze | Project type:
+Web App
+Status: Draft for decision owner review | Draft date: 30 October 2026
+1. Background & Context
+This PRD-Lite follows the PRISM-P Problem Brief for Fair Bill.
+What problem are we solving? Families in Bengaluru cannot tell whether a normal-
+delivery hospital bill is typical for comparable hospitals. Existing Indian cost websites
+show estimated city-level ranges, and the AI bill-checking tools we found are built for US
+billing. In a limited scan we found no tool that checks a family’s own Indian hospital bill
+against real bills from comparable hospitals. This needs validation.
+Why now? The problem can be tested with a narrow scope (one procedure, one city), and
+a small set of consented real bills is enough to evaluate whether the comparison is useful.
+2. In-Scope
+Scope boundary: normal delivery, Bengaluru, bills in English.
+Features
+Upload of a bill as an image or PDF
+Extraction of line items and the printed total, with a check that they add up
+User review and correction of extracted items
+Comparison with similar bills (same procedure, hospital tier, room category)
+Typical ranges, the number of bills used, and flags for unusual charges
+Plain-language explanations and suggested questions to ask the hospital
+Optional, consented contribution of the bill to the benchmark, with anonymization
+and deletion on request
+Administrator review of contributed bills and maintenance of tiers and categories
+Workflows: bill check at or after discharge; bill contribution; benchmark administration.
+User roles: patient or family member; benchmark administrator.PRISM-R PRD-Lite
+Page 1 of 11
+
+--- Page 2 ---
+3. Out-of-Scope
+Procedures other than normal delivery, including C-section, emergency, and ICU stays
+Cities other than Bengaluru
+Bills in Kannada or other languages, and a Kannada interface
+Pre-delivery cost estimates
+Hospital quality ratings or rankings
+Medical or legal advice
+Negotiating with hospitals, filing disputes, or insurance claim processing
+User accounts, payments, and native mobile apps
+Dashboards or products for insurers, TPAs, and employers
+Integration with hospital or insurer systems
+4. User Personas / Actors
+5. User Journeys / Use Cases
+UJ-1 Happy path: check a bill
+1. The user opens the tool and uploads a bill.
+2. The system shows the extracted hospital, date, line items, and printed total.
+3. The sum of line items matches the printed total.
+4. The user confirms hospital, room category, and bill year.
+5. The system categorizes the items and compares them with the peer group.Actor Description
+Patient or family member Primary user. Holds a normal-delivery bill and
+wants to know if it is typical. May also contribute
+the bill.
+Benchmark administrator Internal team member who reviews contributed
+bills and maintains hospital tiers, category
+mapping, and package information.
+Third-party document-reading
+serviceOnly if one is used to read bill images. Selection is
+made during design (see Section 10).PRISM-R PRD-Lite
+Page 2 of 11
+
+--- Page 3 ---
+6. The user sees typical ranges, the number of bills used, flags, explanations, and
+questions to ask.
+7. The user is offered optional consent to contribute the bill, and receives a reference
+code if they agree.
+UJ-2 Sum mismatch: the sum differs from the printed total. The user corrects items, then
+continues from step 4.
+UJ-3 Limited data: the peer group has few bills. The user sees a limited-data label or no
+range, as defined in FR-09.
+UJ-4 Unreadable bill: the file cannot be read. The user is told why and can re-upload or
+enter items manually.
+UJ-5 Unsupported bill: the user indicates a procedure other than normal delivery. The
+system explains that only normal delivery is supported.
+UJ-6 Administration: the administrator reviews a contributed bill, approves or rejects it,
+and updates tiers or categories.
+6. Functional Requirements
+Proposed values (limits, thresholds, time frames) are tracked for confirmation in Section
+12.
+FR-01: The system shall accept a bill as a JPG, PNG, or PDF file of up to 10 MB and up
+to 5 pages.
+FR-02: The system shall extract from the bill the hospital name, bill date, room type (if
+shown), each line item (description and amount), and the printed total.
+FR-03: The system shall add up the extracted line items, compare the sum with the
+printed total, and notify the user when they differ by more than ₹ 1.
+FR-04: The system shall let the user edit, add, and delete line items and amounts
+before comparison, including entering all items manually if extraction fails.
+FR-05: The system shall ask the user to confirm the procedure (normal delivery only),
+hospital, room category, and bill year. It shall assign the hospital tier from the
+administrator-maintained list, or ask the user to select a tier if the hospital is not
+listed.
+FR-06: The system shall assign each line item to a standard category: room, doctor
+fees, nursing, medicines, consumables, baby charges, tests, or other.PRISM-R PRD-Lite
+Page 3 of 11
+
+--- Page 4 ---
+FR-07: The system shall compare the bill with its peer group: approved bills for the
+same procedure, hospital tier, and room category, dated within the last 3 years.
+FR-08: The system shall show, for each category and for the total, the typical range of
+the peer group (25th to 75th percentile) and the number of bills used.
+FR-09: The system shall apply data-sufficiency rules: with fewer than 5 bills in the
+peer group, no range is shown; with 5 to 9 bills, the range is labelled “limited data”;
+with 10 or more bills, the range is shown without the label.
+FR-10: The system shall raise these flags: (a) duplicate line items; (b) a category
+amount above the 90th percentile of its peer group, only when the group has at least
+10 bills; (c) an item that appears in fewer than 10% of peer-group bills, only when the
+group has at least 10 bills; (d) a sum mismatch that the user has not resolved; (e) an
+item billed separately although the hospital’s recorded package inclusions list it,
+where such data exists.
+FR-11: For each flag, the system shall give a plain-language explanation and at least
+one suggested question to ask the hospital. The wording shall not state or imply
+overcharging, fraud, or differences in hospital quality.
+FR-12: The result screen shall display a notice that the comparison is about price only
+and is not medical or legal advice.
+FR-13: The system shall offer, separately from the result, an optional consent to
+contribute the bill to the benchmark. The option shall be unchecked by default, and
+the result shall not depend on it.
+FR-14: Before storing a contributed bill, the system shall remove patient names,
+patient or admission numbers, doctor names, phone numbers, and addresses, and
+shall not retain the original image or file.
+FR-15: The system shall show peer data only in aggregate. It shall never display an
+individual contributed bill or attribute a contributed price to a named hospital.
+FR-16: The system shall give each contributor a reference code and shall delete the
+contributor’s stored bill within 7 days of a deletion request made with that code.
+FR-17: The system shall let an administrator review, approve, or reject contributed bills
+before they enter the benchmark, and maintain the hospital tier list, category
+mapping, and package information.PRISM-R PRD-Lite
+Page 4 of 11
+
+--- Page 5 ---
+7. Acceptance Criteria (Testable)
+FR-01: Given the user is on the upload screen, when they select a 4 MB JPG, then the
+file is accepted and processing starts. Given a file over 10 MB or of another type,
+when selected, then it is rejected with a message stating the allowed types and size.
+FR-02: Given a clear bill with hospital name, date, and itemized charges, when it is
+processed, then the review screen shows the hospital name, date, each line item with
+its amount, and the printed total.
+FR-03: Given extracted items that sum to ₹ 42,000 and a printed total of ₹ 45,000,
+when the check runs, then a mismatch notice is shown and the user is asked to
+review before continuing.
+FR-04: Given the review screen, when the user edits an amount or deletes a row, then
+the comparison uses the edited values. Given extraction failed, when the user adds
+items manually, then the flow continues normally.
+FR-05: Given a hospital on the maintained list, when the user confirms the bill details,
+then its tier is assigned automatically. Given a hospital not on the list, when the user
+confirms, then the user is asked to select a tier.
+FR-06: Given a line item for room charges, when categorization runs, then it is
+assigned to the room category. Given an item that matches no category, then it is
+assigned to other and shown to the user.
+FR-07: Given a bill dated within the last 3 years with a confirmed tier and room
+category, when the comparison runs, then only approved bills with the same
+procedure, tier, and room category are used.
+FR-08: Given a peer group with 12 bills, when results are shown, then each category
+and the total show a 25th to 75th percentile range and the text “based on 12 bills”.
+FR-09: Given a peer group with 4 bills, then no range is shown. Given 7 bills, then a
+range with the label “limited data” is shown. Given 10 bills, then the range is shown
+without the label.
+FR-10: Given a bill with the same item entered twice, when the comparison runs, then
+a duplicate flag is raised. Given a category amount above the group’s 90th percentile
+and a group of at least 10 bills, then a high-amount flag is raised. Given a group of
+fewer than 10 bills, then flags (b) and (c) are not raised.
+FR-11: Given any flag, when it is displayed, then it includes an explanation, at least one
+suggested question, and none of the words overcharged, fraud, or cheated.
+FR-12: Given the result screen, when it loads, then the price-only notice is visible
+without scrolling past the results.PRISM-R PRD-Lite
+Page 5 of 11
+
+--- Page 6 ---
+FR-13: Given the result screen, when it loads, then the consent option is unchecked.
+Given the user does not consent, then the result is still shown and no bill data is
+stored.
+FR-14: Given a consented bill containing a patient name and admission number, when
+it is stored, then the stored record contains neither, and the original file is not
+retained.
+FR-15: Given any result screen, then it shows only ranges and counts, and does not
+show an individual bill or a hospital-specific contributed price.
+FR-16: Given a valid reference code, when a deletion request is received, then the
+stored bill is removed within 7 days and the request is recorded. Given an invalid code,
+then no data is deleted and the requester is told the code was not found.
+FR-17: Given a newly contributed bill, when it is pending, then it is not used in any
+comparison. Given the administrator approves it, then it is included from the next
+comparison.
+8. Edge Cases & Negative Scenarios
+ID Scenario Expected behavior
+EC-
+01Blurry, dark, or cropped photo Tell the user the file could not be read
+well, and offer re-upload or manual
+entry
+EC-
+02Handwritten bill Allow manual correction of items
+EC-
+03Multi-page bill where a page is missing Sum mismatch notice and review
+EC-
+04Bill in Kannada or another unsupported
+languageTell the user only English bills are
+supported
+EC-
+05Bill shows a package total only, with no
+line itemsCompare the package total, and let the
+user add extras
+EC-
+06Procedure is not normal delivery (for
+example C-section)Explain that only normal delivery is
+supported
+EC-
+07Hospital outside Bengaluru Tell the user that only Bengaluru is
+supportedPRISM-R PRD-Lite
+Page 6 of 11
+
+--- Page 7 ---
+9. Non-Functional Requirements (NFRs)ID Scenario Expected behavior
+EC-
+08Bill dated more than 3 years ago Warn that prices may have changed and
+exclude it from the benchmark
+EC-
+09Cashless insurance bill with discounts or
+concessionsLet the user enter the amounts actually
+billed and indicate that a discount
+applies
+EC-
+10File is not a bill Tell the user the file does not look like a
+bill
+EC-11Same bill contributed twice Detect the duplicate and keep one
+record
+EC-
+12User closes the page before consenting Nothing is stored
+EC-
+13Peer group has fewer than 5 bills Follow FR-09 and show no range
+EC-
+14NICU stay or complications on the bill Show a notice that such cases may not
+be comparable
+Category Requirement
+Performance A result is shown within 60 seconds for 95% of
+uploads up to 10 MB
+Accuracy At least 85% of a test set of 10 or more real bills
+pass the sum check without manual correction
+Security Data encrypted in transit and at rest. Benchmark
+access limited to administrators. No personal
+identifiers in logs or analytics
+Privacy and complianceExplicit consent before storing any bill. Data used
+only for the benchmark. Deletion within 7 days of
+request. Review against the Digital Personal Data
+Protection Act, 2023 before the pilotPRISM-R PRD-Lite
+Page 7 of 11
+
+--- Page 8 ---
+10. Data & Integration Requirements
+Inputs
+A bill file (JPG, PNG, or PDF)
+User entries: corrections to line items, procedure, hospital, room category, bill year,
+consent choice
+Administrator entries: hospital tier list, category mapping, package inclusions
+Outputs
+A table of line items with categories
+Comparison results: typical ranges, number of bills used, data-sufficiency labels
+Flags with explanations and suggested questions
+A reference code for contributors
+Stored benchmark record (consented bills only): procedure, hospital tier, hospital
+(internal use only), room category, bill year, package or itemized, each line item (category
+and amount), total, consent date, reference code, approval status.
+External integrations: none are required in the first release. If a third-party service is
+used to read bill images, it must not retain the images or use them to train models. This is
+confirmed during design.Category Requirement
+Availability Available during pilot and demo windows. No
+formal uptime guarantee is committed
+(consciously deferred)
+Scalability Supports up to 100 bill checks per day in the pilot.
+Larger scale is consciously deferred
+Observability Record processing success or failure, time to
+result, and flag counts, without personal data
+Usability Works in a phone browser. English interface.
+Upload in one step. Kannada interface is
+consciously deferredPRISM-R PRD-Lite
+Page 8 of 11
+
+--- Page 9 ---
+11. Assumptions & Risks
+The full lists are in the PRISM-P Problem Brief. The ones that most affect these
+requirements are:
+Assumption: hospitals can be grouped into a small set of tiers and room categories
+that explain most justified price differences.
+Assumption: at least 30 consented bills can be collected before the pilot.
+Assumption: bill photos can be read accurately enough for comparison.
+Risk: too few bills in a peer group make results unreliable. FR-08 and FR-09 limit this.
+Risk: unfair or wrong flags damage trust. FR-10 and FR-11 limit this.
+Risk: a consent or privacy failure harms families. FR-13 to FR-16 limit this.
+12. Open Questions
+# Question Owner
+1 Confirm the proposed values: 10 MB file limit, ₹ 1
+tolerance, 3-year recency, 25th to 75th
+percentile range, 5 and 10 bill thresholds, 90th
+percentile and 10% flag thresholds, 7-day
+deletionDecision Owner
+2 Which Bengaluru hospitals belong in each tier? Team Member 2
+3 Do hospitals publish package inclusions that can
+be recorded for FR-10(e)?Team Member 2
+4 What consent wording and retention period are
+acceptable?Decision Owner, with mentor
+review
+5 Can a family upload a bill for a patient other than
+themselves, and what permission is needed?Decision Owner
+6 Is the 85% sum-check target realistic on real
+Bengaluru bills?Team Member 1PRISM-R PRD-Lite
+Page 9 of 11
+
+--- Page 10 ---
+13. Definition of Done (DoD)
+All functional requirements FR-01 to FR-17 are implemented and pass their
+acceptance criteria.
+Every edge case in Section 8 is handled as described.
+The NFR targets in Section 9 are met on a test set of at least 10 real bills, or the
+shortfall is documented.
+At least 15 consented, anonymized bills are in the benchmark.
+The consent text and the deletion process have been reviewed by the decision owner
+and a mentor.
+A demo with one real, anonymized bill runs end to end without manual intervention.
+All open questions in Section 12 have an answer or a documented decision.
+The decision owner has signed off.
+14. Approval & Freeze
+15. AI Gold Prompt Mapping
+15.1 Approved AI tool(s) per template: Primary: ChatGPT. Secondary (feasibility
+validation only): Gemini Code Assist.
+15.2 Tool used for this draft: Claude, based on inputs provided by the team. Claude is not
+listed as an approved tool for PRISM-R, and the Gold Prompt was not run verbatim. The
+team should confirm with the process owner whether a re-run through the approved tool
+is required before the gate.
+15.3 Quality check
+Is every requirement testable? Yes, each has acceptance criteria in Section 7.
+Are there any TBDs? No. Proposed values are marked and tracked in Section 12.Decision Owner Approval
+Name
+Signature / Approval
+DatePRISM-R PRD-Lite
+Page 10 of 11
+
+--- Page 11 ---
+Are NFRs explicitly stated or consciously deferred? Yes, see Section 9.
+15.4 Evidence for PRISM Gate (M1 → M2)
+Evidence Status
+Completed PRISM-R PRD-Lite Drafted
+Acceptance criteria present for all functional
+requirementsDrafted
+Decision owner sign-off Pending
+Open questions tracked with owners DraftedPRISM-R PRD-Lite
+Page 11 of 11
+
+================================================================================
+FILE: PRISM-S Design Document (RFC).pdf
+================================================================================
+
+
+--- Page 1 ---
+PRISM-S Design Document (RFC)
+Initiative: Fair Bill, a hospital bill comparison tool for families in Bengaluru
+Company: SmartX Technologies | PRISM Phase: S – Structured Design | Project type: W eb
+App
+Status: Draft for design review | Draft date: 11 November 2026
+1. Executive Summary
+Problem recap: Families in Bengaluru cannot tell whether a normal-delivery hospital bill is
+typical for comparable hospitals.
+Chosen solution: Option 2 from PRISM -I, a hybrid pipeline. One Python web application
+reads a bill with a vision model, checks the extraction, compares the bill with consented,
+anonymized bills grouped by procedure, hospital tier, and room category using
+deterministic rules, and explains the result in neutral plain language.
+Key tradeoffs accepted
+Bill images are processed by a third-party vision service. This is managed with a
+consent notice, a provider that does not retain or train on images, in-memory handling,
+and a spending cap.
+There is a per-bill model cost, to be measured in the provider spike.
+The pilot runs as a single instance with no formal availability guarantee.
+Categorization uses keyword rules in version 1, not a trained model.
+2. References
+PRISM -P Problem Brief: https://claude.ai/artifact/CyKPRbSY9KZi1jHY5J1u99
+PRISM -R PRD-Lite: https://claude.ai/artifact/GnqUDM kCkrLk8DpYdwEW p7
+PRISM -I Solution Options M atrix: https://claude.ai/artifact/5oekZVPJiYE8x3xQUJz1Lq
+3. Design Goals & Non-Goals
+Goals
+G1: Implement FR-01 to FR-17 and the PRISM -R non-functional targets.PRISM-S Design Document (RFC)
+Page 1 of 23
+
+--- Page 2 ---
+G2: M ake every flag traceable to a named rule and to the data behind it.
+G3: Build privacy in: no image is stored, identifiers are scrubbed, and nothing is saved
+without consent.
+G4: Keep it buildable by two people: one language, one deployable, minimal
+infrastructure.
+G5: M ake adding a procedure or city a matter of data and configuration, not new code.
+Non-goals
+A public API, user accounts, or native mobile apps
+M ore than about 100 checks per day, or multiple regions
+Kannada bills or a Kannada interface
+Training our own models
+Integration with hospital or insurer systems
+Features for insurers, TPAs, or employers
+Procedures other than normal delivery
+4. High-Level Architecture
+The system is a modular monolith: one deployable application with separate service
+modules, so there is no network hop between internal parts.
+Browser (phone or laptop)
+        |
+        v
++-------------------------------------------+
+| Web UI (Streamlit pages)                  |
+| upload | review | confirm | results |      |
+| consent | deletion | admin                |
++---------------------+---------------------+
+                      | Python calls
+                      v
++-------------------------------------------+
+| Service layer                             |
+|  Upload validator                         |
+|  Extractor ------------> Vision model API |
+|  Hospital resolver                        |
+|  Categorizer                              |
+|  Benchmark engine                         |
+|  Flag engine                              |PRISM-S Design Document (RFC)
+Page 2 of 23
+
+--- Page 3 ---
+|  Explainer ------------> Text model API   |
+|  Contribution and privacy                 |
+|  Deletion                                 |
+|  Admin                                    |
++---------------------+---------------------+
+                      |
+                      v
++-------------------------------------------+
+| SQLite database (WAL mode)                |
++-------------------------------------------+
+Components and responsibilities
+ID Component Responsibility
+C1 W eb UI Pages for upload, review and edit, confirm details,
+results, consent, deletion request, and admin.
+Holds the in-progress bill in session memory only
+C2 Upload validator Checks file type, size, page count, and that the file
+is a real image or PDF
+C3 Extractor Sends page images to the vision model, validates
+the structured reply, and runs the sum check
+C4 Hospital resolver M atches the hospital name to the maintained list
+and returns its tier
+C5 Categorizer Normalizes item descriptions and assigns each
+item to a standard category
+C6 Benchmark engine Builds the peer group, computes ranges, and
+applies data-sufficiency rules
+C7 Flag engine Applies the five flag rules
+C8 Explainer Turns flags into plain-language explanations and
+questions, with a banned-wording filter and
+template fallback
+C9 Contribution and privacy Handles consent, identifier scrubbing, duplicate
+detection, pending storage, and reference codes
+C10 Deletion Removes a contributor’s stored bill on requestPRISM-S Design Document (RFC)
+Page 3 of 23
+
+--- Page 4 ---
+Technology choices
+Library choices may change during build if a library proves unsuitable.
+Interaction overview: The user uploads a bill. The validator checks it, and the extractor
+reads it into line items. The user reviews and corrects them, then confirms hospital, room
+category, and year. The categorizer, benchmark engine, and flag engine compute the
+result, and the explainer words it. If the user consents, the contribution service scrubs
+and stores the bill as pending until an administrator approves it.ID Component Responsibility
+C11 Admin Reviews contributed bills and maintains hospitals,
+tiers, categories, and package information
+Layer Choice Reason
+Language Python 3.11 or later One language for the whole team
+UI Streamlit Fastest route to upload, tables, and
+forms
+Data models Pydantic v2 Strict validation of model output
+and user edits
+Database SQLite through SQLAlchemy 2 No server to run, and a later move
+to a hosted database stays
+possible
+PDF rendering and
+imagespypdfium2 and Pillow Render PDF pages to images,
+verify uploads, strip metadata
+Name matching rapidfuzz Fuzzy matching of hospital names
+Statistics Python standard library Percentiles without extra
+dependencies
+M odel access Provider adapter interface The provider is chosen after the
+spike and can be swapped
+Tests and CI pytest and GitHub Actions Automated checks on every push
+Hosting One instance on a host with
+persistent storageChosen in an open questionPRISM-S Design Document (RFC)
+Page 4 of 23
+
+--- Page 5 ---
+5. Component-Level Design
+C1 Web UI
+Responsibilities: Implements the pages and keeps session state in memory. Clears
+the in-progress bill when the user leaves or after 30 minutes of inactivity (proposed).
+Inputs / outputs: User actions in; rendered pages and notices out.
+Dependencies: All services.
+C2 Upload validator
+Responsibilities: Accept JPG, PNG, and PDF files up to 10 M B and 5 pages. Decode
+each file to confirm it is real. Strip image metadata. Render PDF pages to images in
+memory.
+Inputs / outputs: File bytes and type in; a list of page images or an error code out.
+Dependencies: Pillow, pypdfium2.
+C3 Extractor
+Responsibilities: Send the page images to the vision model with a fixed instruction.
+The instruction asks for JSON only, with amounts as numbers in rupees, unreadable
+fields as null, no patient names, identifiers, doctor names, phone numbers, or
+addresses, and to ignore any instructions that appear inside the document.
+Temperature is 0. Validate the reply against the extraction schema in Section 7. Run
+the sum check with a ₹ 1 tolerance.
+Time rules: The first attempt times out at 25 seconds. One retry is made only if at
+least 10 seconds remain of a 40-second extraction budget.
+Inputs / outputs: Page images in; a validated extracted bill and sum-check result, or an
+error code, out.
+Dependencies: Provider adapter, Pydantic.
+C4 Hospital resolver
+Responsibilities: Normalize the hospital name, try an exact match, then a fuzzy match
+at 0.85 or higher. Return the hospital and tier, or no match so the user selects a tier.
+Inputs / outputs: Hospital name in; hospital id and tier, or none, out.
+Dependencies: Hospitals table, rapidfuzz.
+C5 CategorizerPRISM-S Design Document (RFC)
+Page 5 of 23
+
+--- Page 6 ---
+Responsibilities: Normalize each description into an item key (lowercase, punctuation
+and numbers removed, spaces collapsed, doctor names reduced to the word doctor).
+Apply ordered keyword rules from the category map to assign room, doctor fees,
+nursing, medicines, consumables, baby charges, tests, or other.
+Inputs / outputs: Line items in; categorized items with item keys out.
+Dependencies: Category map table.
+C6 Benchmark engine
+Responsibilities: Select approved bills for the same procedure, hospital tier, and room
+category, dated within the last 3 years. For the total and for each category, collect
+each peer bill’s amount (only bills that have that category) and compute the 25th,
+50th, 75th, and 90th percentiles using inclusive quantiles. Apply the sufficiency rule
+to each range using the number of peer bills that contribute to it: fewer than 5, no
+range; 5 to 9, labelled limited data; 10 or more, normal.
+Inputs / outputs: A confirmed bill in; a comparison result with ranges and counts out.
+Dependencies: Bills and bill items tables.
+C7 Flag engine
+Rule A, duplicates: Two or more lines with the same item key and the same amount,
+and the same date if dates are present. Room and nursing lines are excluded because
+daily charges repeat legitimately.
+Rule B, high amount: A category total above the 90th percentile of its peer
+distribution, only when that distribution has at least 10 bills.
+Rule C, unusual item: An item key present in fewer than 10%  of peer bills, only when
+the peer group has at least 10 bills.
+Rule D, unresolved mismatch: The user continued with a sum mismatch above ₹ 1.
+Rule E, package inclusion: A separately billed item that the hospital’s recorded
+package inclusions list, only when such data exists.
+Output limits: Each flag carries its rule id, the item or category, the observed value,
+the reference value, and the number of bills used. At most 8 flags are shown, ordered
+by amount.
+C8 Explainer
+Responsibilities: Create an explanation and at least one suggested question for each
+flag from fixed templates. W hen enabled, ask a text model to reword the template in
+friendlier language with an 8-second timeout. Reject any wording that contains aPRISM-S Design Document (RFC)
+Page 6 of 23
+
+--- Page 7 ---
+banned term (for example overcharged, fraud, cheated, scam, or a claim that one
+hospital is better or worse) and fall back to the template.
+Inputs / outputs: Flags in; explained flags with questions out.
+Dependencies: Provider adapter, banned-terms list.
+C9 Contribution and privacy
+Responsibilities: Require a recorded consent. Scrub item descriptions of doctor
+names, phone numbers, admission and patient numbers, and emails. Compute a
+duplicate-detection hash from hospital, bill date, total, and sorted item keys with
+amounts. Insert the bill as pending. Create a 12-character random reference code,
+store only its salted hash, and show the code to the user once. Never write the
+original file to disk.
+Inputs / outputs: A confirmed bill and consent in; a reference code or a duplicate
+notice out.
+Dependencies: Repository layer, secrets library.
+C10 Deletion
+Responsibilities: Hash the supplied code, delete the matching bill and its items
+immediately, and record the request in the deletion log. The requirement allows 7
+days, and this design deletes at once. Repeating the request gives the same not-
+found message.
+Inputs / outputs: A reference code in; a deletion result out.
+C11 Admin
+Responsibilities: Password-gated pages (password from an environment secret, 30-
+minute session). Show pending bills with scrubbed items, approve or reject, and
+maintain hospitals and tiers, category rules, and package inclusions. Every action is
+written to the audit log.
+Inputs / outputs: Admin actions in; data changes and audit entries out.
+6. Data Model & Persistence
+All entities are new. Amounts are stored in paise as integers to avoid rounding errors.PRISM-S Design Document (RFC)
+Page 7 of 23
+
+--- Page 8 ---
+Indexes: bills (procedure, hospital_tier, room_category, status, bill_date); bill_items
+(bill_id, category, item_key).
+What is deliberately not stored: original images or PDFs, patient names, patient or
+admission numbers, doctor names, phone numbers, addresses, and raw item text. Only
+normalized item keys are kept. The hospital is kept for internal use and is never shown
+with a contributed price.
+Persistence rules: Pending and rejected bills are never used in comparisons. Rejected
+bills are deleted after the reason is logged without any bill content.
+Migration considerations: Numbered SQL files (001, 002, and so on) run by a small
+migration runner that records each version. M igrations are forward-only, and a backup is
+taken before each one. The SQLAlchemy layer avoids SQLite-only features so a move to aTable Key columns
+hospitals id, name, normalized_name (unique), tier
+(government, mid_private, large_private), city,
+active
+hospital_packages id, hospital_id, room_category, inclusions (list of
+item keys), published_price (optional),
+source_note, as_of_date
+category_map id, pattern, category, priority
+bills id, ref_hash (unique), procedure, hospital_id,
+hospital_tier, room_category (general,
+semi_private, private, premium), bill_date,
+billing_mode (itemized, package, mixed),
+total_paise, dedupe_hash (unique), status
+(pending, approved, rejected), consent_at,
+consent_version, created_at, reviewed_at,
+schema_version
+bill_items id, bill_id (cascade delete), item_key, category,
+amount_paise
+deletion_log id, ref_hash, requested_at, result
+audit_log id, at, actor, action, entity, entity_id
+schema_migrations version, applied_atPRISM-S Design Document (RFC)
+Page 8 of 23
+
+--- Page 9 ---
+hosted database stays possible. A new procedure or city adds rows and a column value,
+not a schema change.
+7. API Design & Contracts
+Version 1 has no public HTTP API. The contracts are the internal service interfaces below,
+plus one external provider contract. They are written as typed Python functions so they
+can be wrapped in HTTP later.
+Internal service interfaces
+Extraction schema (version 1.0)Function Input Output
+validate_upload file bytes, file type page images, or UploadError
+extract_bill page images ExtractedBill, or ExtractionError
+check_sum items, printed total, tolerance SumCheckResult (matches,
+difference)
+resolve_hospital hospital name HospitalM atch (hospital id, tier, or
+none)
+categorize items CategorizedItem list
+compare ConfirmedBill ComparisonResult (ranges, counts,
+labels)
+flag ConfirmedBill,
+ComparisonResultFlag list
+explain Flag list ExplainedFlag list
+contribute ConfirmedBill, consent ContributionReceipt (reference
+code), or DuplicateNotice
+request_deletion reference code DeletionResult
+admin_review bill id, approve or reject, reason updated status
+admin_upsert hospital, category rule, or
+package recordsaved recordPRISM-S Design Document (RFC)
+Page 9 of 23
+
+--- Page 10 ---
+Error codesField Type Required Notes
+schema_version text yes Fixed value 1.0
+hospital_name text no Null if unreadable
+bill_date date no Year, month, day
+room_type text no As printed
+items list yes Each with description (text), amount (number,
+rupees), quantity (number, optional), and
+item_date (date, optional)
+printed_total number no Rupees
+notes list of
+textno Reading problems the model noticed
+Code M eaning User message intent
+E-UPLOAD-001 Unsupported file type Say which types are allowed
+E-UPLOAD-
+002File over 10 M B or more than 5
+pagesSay the limits
+E-UPLOAD-
+003File cannot be decoded Ask for another file
+E-EXTRACT-
+001Bill not readable Offer re-upload or manual entry
+E-EXTRACT-
+002Reply did not match the
+schemaOffer retry or manual entry
+E-EXTRACT-
+003Provider timeout or error Offer retry or manual entry
+E-EXTRACT-
+004Daily call cap reached Ask the user to try later or enter items
+manually
+E-CM P-001 Procedure not supported Explain only normal delivery is
+supportedPRISM-S Design Document (RFC)
+Page 10 of 23
+
+--- Page 11 ---
+Idempotency
+Contribution: the duplicate-detection hash is unique. Submitting the same bill again
+returns a notice and creates no new record. No second reference code is issued.
+Deletion: repeating a request is safe and returns the same message.
+Admin approval: approving an already approved bill changes nothing.
+Versioning: The extraction schema, the consent text, and the database each carry a
+version. Records store the schema and consent versions used.
+External provider contract: The adapter sends page images and the fixed instruction,
+and expects only schema-conforming JSON. Requests use temperature 0, a 25-second
+timeout, no tools, and provider settings that disable retention and training. Replies are
+treated as data and never executed or used as instructions.
+8. Workflow & Sequence Diagrams
+SQ-1 Check a bill (FR-01 to FR-12, FR-15)Code M eaning User message intent
+E-CM P-002 Hospital outside Bengaluru Explain only Bengaluru is supported
+E-DEL-001 Reference code not found Say the code was not found
+E-ADM -001 Admin authentication failed Show a generic failurePRISM-S Design Document (RFC)
+Page 11 of 23
+
+--- Page 12 ---
+User     -> UI          : upload file
+UI       -> Validator   : validate_upload
+Validator-> UI          : page images, or E-UPLOAD error
+UI       -> Extractor   : extract_bill (images held in memory only)
+Extractor-> Provider    : images + fixed instruction
+Provider -> Extractor   : JSON reply
+Extractor-> UI          : extracted bill + sum check, or E-EXTRACT error
+User     -> UI          : review items beside the page images, correct, 
+confirm hospital, room category, year
+UI       -> Resolver    : resolve_hospital
+UI       -> Categorizer : categorize
+UI       -> Benchmark   : compare (peer group, ranges, sufficiency)
+UI       -> Flag engine : flag (rules A to E)
+UI       -> Explainer   : explain (template, optional model wording, banned-
+term filter)
+UI       -> User        : ranges with bill counts, flags, questions, price-
+only notice
+SQ-2 Contribute a bill (FR-13, FR-14)
+User     -> UI          : tick consent (unchecked by default)
+UI       -> Contribution: contribute(bill, consent)
+Contribution -> Scrubber: remove names, numbers, phones, emails from items
+Contribution -> DB      : insert bill as pending (or duplicate notice)
+Contribution -> UI      : reference code (shown once, only its salted hash is 
+stored)
+SQ-3 Delete a contribution (FR-16)
+User     -> UI          : enter reference code
+UI       -> Deletion    : request_deletion(code)
+Deletion -> DB          : find by hash, delete bill and items, write 
+deletion_log
+Deletion -> UI          : confirmation, or E-DEL-001 if not found
+SQ-4 Approve a bill (FR-17)PRISM-S Design Document (RFC)
+Page 12 of 23
+
+--- Page 13 ---
+Admin    -> UI          : log in (password, 30-minute session)
+Admin    -> Admin svc   : open pending queue (scrubbed items only)
+Admin    -> Admin svc   : approve or reject with a reason
+Admin svc-> DB          : update status, write audit_log
+Benchmark-> DB          : approved bills are included from the next 
+comparison
+9. Non-Functional Considerations
+Performance budget (target: result within 60 seconds for 95%  of uploads up to 10 M B)
+Step Budget
+Upload and validation 2 seconds
+Extraction (25-second first attempt, one retry only
+if at least 10 seconds remain)40 seconds
+Comparison and flags 1 second
+Explanation (8-second timeout, then templates) 8 seconds
+Page rendering 1 second
+W orst case total about 52 seconds
+NFR Design response
+Security Encrypted connections provided by the host.
+Secrets only in environment variables. Admin
+password with lockout after 5 failed attempts for
+15 minutes. Limit of 10 uploads per session per hour
+and a daily cap on extraction calls. Dependency
+scan in CI. Disk encryption to be confirmed for the
+chosen host
+Availability One instance with automatic restart and a health
+check. No formal uptime commitment. A
+maintenance mode switch shows a noticePRISM-S Design Document (RFC)
+Page 13 of 23
+
+--- Page 14 ---
+10. Failure Modes & Edge CasesNFR Design response
+Scalability Up to about 100 checks per day on one instance.
+The path to more is a hosted database and multiple
+instances, which is a non-goal now
+Observability JSON logs from an allowlist of events: upload
+started, extraction succeeded or failed (with error
+code), sum check result, comparison shown (tier,
+room category, bill-count bucket), flags shown
+(count per rule), consent given, contribution
+pending, deletion completed, admin action, and
+timings. No bill content or identifiers are logged
+Compliance Consent text is versioned and shown before
+contribution. Data is used only for the benchmark.
+Deletion is immediate on request. The processing
+provider is disclosed in the privacy notice. A review
+against the Digital Personal Data Protection Act,
+2023 is completed before the pilot, including
+whether images may leave India
+Accuracy At least 85%  of a test set of 10 or more real bills
+pass the sum check without correction. Review
+screen shows the page images beside the
+extracted table so users can spot errors
+ID Failure Detection Handling
+F-01 Provider timeout or error Timeout or error
+responseOne retry if time remains,
+then E-EXTRACT-003 with
+manual entry
+F-
+02Reply is not valid JSON or
+fails the schemaSchema validation One retry, then E-EXTRACT-
+002
+F-
+03M odel misreads an amount Sum check, user
+reviewUser corrects. Rule D flags it
+if the user continues with a
+mismatchPRISM-S Design Document (RFC)
+Page 14 of 23
+
+--- Page 15 ---
+ID Failure Detection Handling
+F-
+04Errors that cancel out so
+the sum still matchesNot detectable by
+codePage images shown beside
+the table for the user to
+check
+F-
+05Bill text tries to instruct the
+modelSchema validation, no
+tools givenReply treated as data and
+rejected if outside the
+schema
+F-
+06Hospital not found or match
+below 0.85Resolver result User selects a tier
+F-
+07Item miscategorized M any items in other,
+admin reviewAdmin edits category rules
+F-
+08Fewer than 5 peer bills Count per range No range shown, message
+explains why (EC-13)
+F-
+09One outlier distorts a range Percentile design M iddle 50%  range, and the
+high-amount flag needs 10 or
+more bills
+F-10 Explanation contains
+banned wordingFilter Fall back to the template
+F-11 W ording model is slow or
+down8-second timeout Fall back to the template
+F-12 Identifier left in item text Scrubber, admin
+reviewAdmin rejects the bill and
+the rule is added to the
+scrubber
+F-13 Consent not given UI state Nothing stored (EC-12)
+F-14 Same bill contributed twice Duplicate hash Notice, no new record (EC-
+11)
+F-15 Database locked or
+corruptedErrors, health check W rite-ahead logging, short
+transactions, daily backup,
+restore
+F-16 Host loses local storage M issing database at
+startUse persistent storage,
+check at startup, restore
+from backupPRISM-S Design Document (RFC)
+Page 15 of 23
+
+--- Page 16 ---
+The remaining PRISM -R edge cases (EC-01 to EC-04, EC-09, EC-10, EC-14) are handled in
+the user interface with the messages named in PRISM -R and checked in test E2E-08.
+11. Test Strategy
+Unit tests
+UT-01 upload validation (types, size, pages, decoding)
+UT-02 sum check including the ₹ 1 tolerance and paise handling
+UT-03 item key normalization
+UT-04 category rules
+UT-05 hospital resolver (exact, fuzzy, no match)
+UT-06 percentiles and the 5 and 10 bill sufficiency rules
+UT-07 flag rules A to E, including the room and nursing exclusion
+UT-08 banned-wording filter
+UT-09 identifier scrubber on synthetic examples
+UT-10 duplicate-detection hash
+UT-11 reference code creation and hashingID Failure Detection Handling
+F-17 Daily cap reached or cost
+spikeCounter E-EXTRACT-004 and manual
+entry
+F-18 Admin password guessed Failed-attempt
+counterLockout, rotate the secret
+F-19 Bulk or abusive uploads Per-session counter Friendly limit message
+F-
+20User session expires 30-minute inactivity Ask the user to upload again
+F-21 Other procedure or other
+cityUser confirmation E-CM P-001 or E-CM P-002
+(EC-06, EC-07)
+F-
+22Package-only bill No line items found Compare the package total
+and let the user add extras
+(EC-05)
+F-
+23Bill older than 3 years Date check W arn and exclude from the
+benchmark (EC-08)PRISM-S Design Document (RFC)
+Page 16 of 23
+
+--- Page 17 ---
+Integration tests
+IT-01 extraction with recorded provider replies (valid, malformed, timeout)
+IT-02 peer group query excludes pending, rejected, and older-than-3-years bills
+IT-03 contribute, pending, approve flow
+IT-04 deletion removes the bill and items and writes the log
+IT-05 migrations run on an empty database and are safe to run twice
+IT-06 admin actions write the audit log
+End-to-end tests
+E2E-01 happy path with a real anonymized bill
+E2E-02 sum mismatch and correction
+E2E-03 limited data and no-range cases
+E2E-04 unsupported procedure and non-Bengaluru hospital
+E2E-05 consent given and consent refused
+E2E-06 deletion by reference code
+E2E-07 admin approval changes the next comparison
+E2E-08 checklist run of EC-01 to EC-14
+Non-functional checks
+NT-01 latency over at least 20 runs
+NT-02 sum-check pass rate on at least 10 real bills
+NT-03 scan of logs for identifiers
+NT-04 scan of storage for stored images or files
+NT-05 secrets scan of the repository
+Test data: at least 10 real consented bills and 3 synthetic edge-case bills, kept outside the
+code repository. Provider calls are mocked in automated tests and run for real only in NT-
+01 and NT-02.
+Requirements traceability
+Requirement Design element Tests
+FR-01 C2, C1 UT-01, E2E-01, E2E-08
+FR-02 C3 IT-01, NT-02PRISM-S Design Document (RFC)
+Page 17 of 23
+
+--- Page 18 ---
+12. Deployment, Rollout & Rollback
+Environments: local development, and one pilot instance on a host with persistent
+storage.
+Configuration (environment variables): model provider and key, administrator password,
+reference-code salt, daily extraction cap, and the feature flags below.
+Feature flagsRequirement Design element Tests
+FR-03 C3, C1 UT-02, E2E-02
+FR-04 C1 E2E-02, E2E-08
+FR-05 C4, C1 UT-05, E2E-04
+FR-06 C5 UT-03, UT-04
+FR-07 C6 IT-02
+FR-08 C6, C1 UT-06, E2E-01
+FR-09 C6, C1 UT-06, E2E-03
+FR-10 C7 UT-07
+FR-11 C8 UT-08, E2E-01
+FR-12 C1 E2E-01
+FR-13 C9, C1 E2E-05
+FR-14 C9 UT-09, NT-04
+FR-15 C1, C6 E2E-01
+FR-16 C10 UT-11, IT-04, E2E-06
+FR-17 C11, C6 IT-02, IT-03, E2E-07
+NFR performance Budget in Section 9 NT-01
+NFR accuracy C3 and review screen NT-02
+NFR security and privacy C9, C10, logging rules NT-03, NT-04, NT-05, IT-04PRISM-S Design Document (RFC)
+Page 18 of 23
+
+--- Page 19 ---
+Rollout
+1. Internal testing with the team’s own bills.
+2. Closed pilot with invited families, with contribution on only after the privacy
+walkthrough (NT-03, NT-04) passes.
+3. W ider pilot only if the success metrics in PRISM -P are on track.
+Backward compatibility: M igrations only move forward, a database backup is taken
+before each, and records carry schema and consent versions.
+Rollback plan
+Each release is tagged. Roll back by redeploying the previous tag.
+If a migration fails, restore the pre-migration backup.
+Switch off contribution or model wording with flags, or use maintenance mode,
+without a new deployment.
+13. Risks & MitigationsFlag Purpose
+ENABLE_CONTRIBUTION Turns bill contribution on or off
+ENABLE_M ODEL_W ORDING Uses model wording for explanations, or templates
+only
+ENABLE_FLAG_UNUSUAL_ITEM Turns rule C on or off
+ENABLE_FLAG_PACKAGE Turns rule E on or off
+M AINTENANCE_M ODE Shows a maintenance notice and stops processing
+ID Risk M itigation
+R1 Provider retains or trains on bill images,
+or processes them outside India in a way
+the privacy review rejectsProvider spike with written confirmation
+of terms. Process images in memory only.
+Fall back to the concierge method
+(PRISM -I Option 1) or the self-hosted
+OCR option (Option 3)PRISM-S Design Document (RFC)
+Page 19 of 23
+
+--- Page 20 ---
+14. Open Questions
+These must be closed before build starts.ID Risk M itigation
+R2 Extraction accuracy below the 85%  sum-
+check targetSpike on at least 10 real bills with two
+providers. Keep the review screen with
+page images beside the table. M anual
+entry as a fallback
+R3 Too few consented bills for credible
+rangesCollect through personal networks first.
+Show how many bills each range uses.
+Label limited data and show no range
+below 5 bills
+R4 Identifiers reach stored data Scrubber, administrator review before
+approval, tests UT-09, NT-03, and NT-04
+R5 W rong or unfair flags reduce trust Compare like with like, conservative
+thresholds, bill counts shown, neutral
+wording enforced by the filter
+R6 Host without persistent storage loses
+dataChoose a host with persistent storage,
+check at startup, take daily backups
+R7 M odel cost exceeds what is affordable M easure cost per bill in the spike, set a
+daily cap, limit uploads per session
+R8 Two-person capacity is not enough Follow the cut order in the PRISM -M
+execution notes
+R9 A library or provider changes or fails Provider adapter interface and pinned
+dependency versions
+R10 Results are read as medical or legal
+advicePrice-only notice on every result screen
+(FR-12)
+# Question Owner
+1 W hich provider is chosen after the spike, and
+what are its retention, training, and data-
+location terms?Team M ember 1PRISM-S Design Document (RFC)
+Page 20 of 23
+
+--- Page 21 ---
+15. Architecture Decision Record (ADR)
+ADR-001: Hybrid pipeline with vision-model extraction and rule-based comparison
+Status: Proposed, pending design review. Date: 11 November 2026.
+Context
+The product must read varied Indian hospital bills quickly, with a team of two. Every flag
+must be traceable to data, wording must stay neutral, and privacy ranks first among the
+non-functional priorities. PRISM -I compared a concierge service, a hybrid pipeline, and a
+self-hosted OCR pipeline, and also considered and rejected a model-only approach.
+Decision
+Use a vision model only to read bills into structured line items and, optionally, to
+reword explanations.# Question Owner
+2 W hich host is used, does it keep data across
+restarts, and is disk encryption available?Team M ember 1
+3 Is sending bill images to a provider outside India
+acceptable under the privacy review?Decision Owner, with mentor
+review
+4 W hat is the retention period for approved bills
+after the pilot ends?Decision Owner
+5 W ho reviews the consent text and the privacy
+notice before the pilot?Decision Owner
+6 W ho is the administrator, and how are the
+password and reference-code salt kept and
+rotated?Decision Owner
+7 W hich hospitals go in each tier, and how large is
+the starting list?Team M ember 2
+8 Confirm the proposed limits: 30-minute
+inactivity, 10 uploads per session per hour, and
+the daily extraction capDecision Owner
+9 W hat is the measured cost per bill? Team M ember 1PRISM-S Design Document (RFC)
+Page 21 of 23
+
+--- Page 22 ---
+Compute every comparison, percentile range, threshold, and flag with deterministic
+code.
+Build one Python application (modular monolith) with Streamlit and SQLite, with the
+model provider behind an adapter interface.
+Never persist the original file. Store a bill only after explicit consent, scrub identifiers,
+and keep it out of comparisons until an administrator approves it.
+Consequences
+Positive: flags are traceable and testable, the provider can be swapped, the operating
+footprint is small, and a new procedure is added through data.
+Negative: bill images go to a third party, there is a per-bill cost, a single instance limits
+availability and scale, keyword categorization is limited in accuracy, and SQLite allows
+one writer at a time.
+Alternatives considered: concierge service, self-hosted OCR pipeline, model-only
+approach (see PRISM -I).
+Revisit if: the provider spike falls short of the 85%  target, or the privacy review blocks
+third-party processing of bill images.
+16. Approval
+17. AI Gold Prompt Mapping
+17.1 Approved AI tool(s) per template: Primary: ChatGPT. Secondary (spec-driven
+refinement): Kiro. Validation and repo context (optional): Claude Code.
+17.2 Tool used for this draft: Claude (chat), based on inputs provided by the team. The
+Gold Prompt was not run verbatim, and Claude in chat is not one of the listed tools. The
+team should confirm with the process owner whether a re-run through the approved
+tools is required before the gate.Design Review Approval
+Approver(s)
+Date
+Decision Approved / Changes RequiredPRISM-S Design Document (RFC)
+Page 22 of 23
+
+--- Page 23 ---
+17.3 Quality check
+Can a different developer implement this without clarification? Largely yes. The nine
+open questions in Section 14 must be closed first.
+Are all requirements traceable? Yes, see the table in Section 11.
+Are risks and failure scenarios covered? Yes, see Sections 10 and 13.
+17.4 Evidence for PRISM Gate (M3 → M4)
+Evidence Status
+Completed PRISM -S Design Document Drafted
+ADR included and approved Included, approval pending
+Requirements-to-design traceability confirmed Drafted (Section 11)
+Design review completed with sign-off PendingPRISM-S Design Document (RFC)
+Page 23 of 23
+
+================================================================================
+FILE: PRISM-M Task Breakdown Structure (TBS).pdf
+================================================================================
+
+
+--- Page 1 ---
+PRISM-M Task Breakdown Structure (TBS)
+Initiative: Fair Bill, a hospital bill comparison tool for families in Bengaluru
+Company: SmartX Technologies | PRISM Phase: M – Milestone Execution | Project type:
+Web App
+Status: Draft for execution plan review | Draft date: 11 November 2026
+1. References
+PRISM-P Problem Brief: https://claude.ai/artifact/CyKPRbSY9KZi1jHY5J1u99
+PRISM-R PRD-Lite: https://claude.ai/artifact/GnqUDMkCkrLk8DpYdwEWp7
+PRISM-I Solution Options Matrix: https://claude.ai/artifact/5oekZVPJiYE8x3xQUJz1Lq
+PRISM-S Design Document: https://claude.ai/artifact/9XrFoNG8RYdzub4rZ3kP7K
+2. Execution Objectives
+Functionality at the end of this milestone
+A pilot-ready Fair Bill web application: a user uploads a normal-delivery bill, reviews
+the extracted items, and sees ranges, flags, plain-language explanations, and
+questions to ask.
+Optional consented contribution with anonymization, deletion on request, and
+administrator approval before a bill enters the benchmark.
+Deployed on a pilot host with persistent storage, daily backups, and feature flags.
+Acceptance criteria to be met
+All PRISM-R acceptance criteria for FR-01 to FR-17.
+The PRISM-R non-functional targets validated, or any shortfall documented.
+Edge cases EC-01 to EC-14 behave as PRISM-R describes.
+3. Milestone Scope
+Included: epics E-01 to E-08 below.
+Explicit exclusions: everything in the PRISM-R Out-of-Scope list, including other
+procedures and cities, Kannada bills, user accounts, payments, and insurer features.PRISM-M T ask Br eakdown Structur e (TB S)
+Page 1 of 14
+
+--- Page 2 ---
+Staffing and effort
+Team Member 1: backend, extraction, benchmark and flag engines, privacy services,
+deployment.
+Team Member 2: interface, hospital and category data, admin pages, test data, demo.
+Team Member 2 also collects bills and interviews parents, which is not counted in the
+task estimates.
+Estimated task effort: about 58 hours for Team Member 1 and 49 hours for Team
+Member 2, 107 in total. At roughly 6 productive hours per person per day, that is about
+10 and 8 working days. Calendar dates are to be set once the delivery window is
+confirmed. These estimates are proposals.
+4. Epic Breakdown
+5. Story BreakdownEpic Title Requirements covered
+E-01 Foundation and data layer Supports all
+E-02 Bill upload and extraction FR-01 to FR-04
+E-03 Categorization and benchmark comparison FR-05 to FR-09
+E-04 Flags and explanations FR-10, FR-11
+E-05 Results screen and notices FR-08, FR-09, FR-12, FR-15
+E-06 Contribution, privacy, and deletion FR-13, FR-14, FR-16
+E-07 Admin and data collection tooling FR-17
+E-08 Quality, NFR validation, and demo readiness NFRs, edge cases
+Epic Story Title Tasks
+E-01 S-01 Project setup and CI T-001, T-002
+E-01 S-02 Database and migrations T-003, T-004
+E-01 S-03 Logging T-005PRISM-M T ask Br eakdown Structur e (TB S)
+Page 2 of 14
+
+--- Page 3 ---
+6. Task Breakdown (Core Section)
+Owners: TM1 is Team Member 1 and TM2 is Team Member 2. Estimates are in hours. Test
+names refer to PRISM-S Section 11.Epic Story Title Tasks
+E-02 S-04 Upload validation T-006
+E-02 S-05 Bill extraction T-007 to T-011
+E-02 S-06 Upload and review screens T-012, T-013
+E-03 S-07 Hospital and bill details T-014, T-015
+E-03 S-08 Categorization T-016
+E-03 S-09 Benchmark comparison T-017 to T-019
+E-04 S-10 Flag rules T-020 to T-022
+E-04 S-11 Explanations T-023, T-024
+E-05 S-12 Results and notices T-025, T-026
+E-06 S-13 Contribution and anonymization T-027 to T-029
+E-06 S-14 Deletion T-030
+E-07 S-15 Bill data import T-031
+E-07 S-16 Admin review and maintenance T-032, T-033
+E-08 S-17 Test data and validation T-034 to T-037
+E-08 S-18 Deployment and demo T-038, T-039
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-001 Create
+repository,
+folder structure,
+dependency
+file, lint and test
+setup, and CI
+workflowrepo root, requirements,
+.github/workflows/ci.ymlCI runs lint and
+tests on every
+push and
+passes with a
+placeholder
+testCI none TM1 2PRISM-M T ask Br eakdown Structur e (TB S)
+Page 3 of 14
+
+--- Page 4 ---
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-002 Load
+configuration
+and secrets
+from
+environment
+variables, add
+an example fileapp/config.py, .env.example App refuses to
+start if a
+required secret
+is missing, and
+no secret is in
+the repositoryUnit T-001 TM1 1
+T-003 Write the initial
+schema and
+migration
+runner with a
+version tablemigrations/001_init.sql,
+app/db/migrate.pyA fresh
+database gets
+all tables and
+indexes from
+PRISM-S
+Section 6, and
+running twice
+changes
+nothingIntegration
+(IT-05)T-001 TM1 3
+T-004 Build the
+repository layer
+for bills, items,
+hospitals,
+packages,
+category map,
+deletion log, and
+audit logapp/db/models.py,
+app/db/repo.pyCRUD works,
+deleting a bill
+removes its
+items, amounts
+are stored in
+paiseIntegration T-003 TM1 3
+T-005 Add a
+structured
+logger with an
+allowlist of
+event fieldsapp/logging.py Fields outside
+the allowlist are
+dropped, and
+the key events
+from PRISM-S
+Section 9 are
+loggedUnit T-001 TM1 2
+T-006 Upload
+validator: type,
+10 MB, 5 pages,
+decode check,
+metadata strip,
+PDF to imagesapp/services/upload.py FR-01 scenarios
+pass and E-
+UPLOAD-001 to
+003 are
+returnedUnit (UT-01) T-001 TM1 3
+T-007 Define the
+provider
+adapter
+interface and a
+test stubapp/services/providers/base.py,
+stub.pyThe stub
+returns
+recorded
+replies in testsUnit T-001 TM1 2PRISM-M T ask Br eakdown Structur e (TB S)
+Page 4 of 14
+
+--- Page 5 ---
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-008 Write the
+extraction
+instruction and
+the Pydantic
+schema, and
+validate repliesapp/services/extractor.py,
+schema.pyA valid reply is
+accepted, an
+invalid one
+gives E-
+EXTRACT-002,
+and the
+instruction
+forbids
+identifiersUnit T-007 TM1 3
+T-009 Provider spike:
+run at least 10
+bills through
+two providers
+and record sum-
+check pass rate,
+time, cost per
+bill, and termsspike notes Decision
+recorded in
+ADR-001, and
+the chosen
+provider meets
+85% or the
+shortfall is
+documentedManual
+(feeds NT-
+02)T-008, T-
+034TM1 4
+T-010 Implement the
+chosen provider
+adapter with
+timeouts, time
+budget, one
+conditional
+retry, and daily
+capapp/services/providers/chosen
+providerFR-02 met, a
+timeout gives
+E-EXTRACT-
+003, the cap
+gives E-
+EXTRACT-004Integration
+(IT-01)T-009 TM1 3
+T-011 Implement the
+sum check with
+a ₹1 toleranceapp/services/extractor.py Items summing
+to 42,000
+against a
+printed 45,000
+return a
+mismatch, and
+paise are exactUnit (UT-
+02)T-008 TM1 1
+T-012 Upload page
+with progress
+and error
+messagesapp/ui/pages/upload.py FR-01 interface
+behavior,
+including size
+and type
+messagesE2E T-006 TM2 3
+T-013 Review page:
+editable table
+beside the page
+images, add and
+delete rows,
+manual entry,
+mismatch
+banner with a
+continue optionapp/ui/pages/review.py FR-03 and FR-
+04 met, and
+images are
+shown from
+memory onlyE2E (E2E-
+02)T-011, T-
+012TM2 4PRISM-M T ask Br eakdown Structur e (TB S)
+Page 5 of 14
+
+--- Page 6 ---
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-014 Hospital
+resolver and
+loader for the
+hospital list
+(spreadsheet
+file)app/services/hospitals.py,
+data/hospitals.csvFR-05 both
+scenarios passUnit (UT-
+05)T-004 TM2 3
+T-015 Confirm-details
+page:
+procedure,
+hospital, room
+category, bill
+year, tier
+fallback,
+unsupported
+casesapp/ui/pages/confirm.py FR-05 met, and
+E-CMP-001 and
+E-CMP-002
+messages showE2E (E2E-
+04)T-013, T-
+014TM2 3
+T-016 Description
+normalizer and
+keyword
+categorizer with
+seed rulesapp/services/categorizer.py,
+data/category_map.csvFR-06 met, and
+unmatched
+items go to
+otherUnit (UT-03,
+UT-04)T-004 TM2 3
+T-017 Peer group
+queryapp/services/benchmark.py FR-07 met, and
+pending,
+rejected, and
+older-than-3-
+year bills are
+excludedIntegration
+(IT-02)T-004 TM1 2
+T-018 Range
+computation
+per category
+and total, with
+bill countsapp/services/benchmark.py FR-08 met: 12
+bills give a 25th
+to 75th
+percentile
+range and the
+countUnit (UT-
+06)T-017 TM1 3
+T-019 Data-
+sufficiency
+rules applied
+per rangeapp/services/benchmark.py FR-09: 4 bills
+give no range, 7
+give limited
+data, 10 give a
+normal rangeUnit (UT-
+06)T-018 TM1 1
+T-020 Flag rule A,
+duplicates, with
+the room and
+nursing
+exclusionapp/services/flags.py FR-10 duplicate
+scenario
+passes, and
+repeated daily
+room lines are
+not flaggedUnit (UT-07)T-016 TM2 2
+T-021 Flag rules B and
+C with the 10-bill
+gateapp/services/flags.py FR-10 scenarios
+pass, and
+neither rule is
+raised below 10
+billsUnit (UT-07)T-018, T-
+019TM1 3PRISM-M T ask Br eakdown Structur e (TB S)
+Page 6 of 14
+
+--- Page 7 ---
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-022 Flag rules D and
+Eapp/services/flags.py FR-10 (d) and
+(e) met, and
+rule E stays
+silent when no
+package data
+existsUnit (UT-07)T-004, T-
+011TM1 2
+T-023 Explanation and
+question
+templates for
+each rule, and
+the banned-
+wording filterapp/services/explainer.py,
+data/banned_terms.txtFR-11 met: no
+banned terms,
+and every flag
+has at least one
+questionUnit (UT-
+08)T-020 TM2 3
+T-024 Optional model
+wording with an
+8-second
+timeout and
+template
+fallbackapp/services/explainer.py A timeout or
+banned term
+falls back to the
+templateIntegration T-023, T-
+010TM1 2
+T-025 Results page:
+ranges with
+counts and
+limited-data
+labels, up to 8
+flags, questions,
+aggregate-only
+displayapp/ui/pages/results.py FR-08, FR-09,
+and FR-15 metE2E (E2E-
+01, E2E-03)T-019, T-
+021, T-023TM2 5
+T-026 Price-only
+notice and
+privacy notice
+pagesapp/ui/pages/results.py, about.py FR-12 met: the
+notice is visible
+without
+scrolling past
+the resultsE2E T-025 TM2 1
+T-027 Identifier
+scrubber with
+synthetic testsapp/services/scrubber.py FR-14 met:
+names after the
+doctor title,
+phone
+numbers,
+admission
+numbers, and
+emails are
+removedUnit (UT-
+09)T-016 TM1 3
+T-028 Contribution
+service: consent
+check, scrub,
+duplicate hash,
+pending insert,
+reference code
+with salted hashapp/services/contribution.py FR-13 and FR-14
+met, a duplicate
+gives a notice,
+and no file is
+writtenIntegration
+(IT-03)T-004, T-
+027TM1 4PRISM-M T ask Br eakdown Structur e (TB S)
+Page 7 of 14
+
+--- Page 8 ---
+ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-029 Consent step
+interface:
+unchecked by
+default,
+versioned text,
+code shown
+onceapp/ui/pages/consent.py FR-13 both
+scenarios passE2E (E2E-
+05)T-028, T-
+025TM2 2
+T-030 Deletion service
+and request
+pageapp/services/deletion.py,
+app/ui/pages/delete.pyFR-16 met, an
+unknown code
+gives E-DEL-
+001, and a
+repeat request
+is safeIntegration
+(IT-04),
+E2E-06T-028 TM1 3
+T-031 Importer for
+manually
+collected
+consented bills
+(spreadsheet to
+approved
+records)scripts/import_bills.py Valid rows are
+imported as
+approved with
+categories and
+item keys, and
+duplicates are
+skippedIntegration T-004, T-
+016TM2 3
+T-032 Admin login and
+review queue
+with approve
+and rejectapp/ui/pages/admin.py,
+app/services/admin.pyFR-17 met,
+pending bills
+are excluded
+until approved,
+5 failed logins
+lock the
+account for 15
+minutes,
+actions are
+audit-loggedE2E (E2E-
+07), IT-06T-004 TM2 4
+T-033 Admin pages for
+hospitals and
+tiers, category
+rules, and
+package
+inclusionsapp/ui/pages/admin.py A change
+affects the
+next
+comparisonE2E T-032 TM2 3
+T-034 Assemble test
+data: at least 10
+real consented
+bills and 3
+synthetic edge
+bills with
+expected
+outputs, kept
+outside the
+repositoryprivate folder Each bill has its
+expected items
+and total
+recordedManual none TM2 4PRISM-M T ask Br eakdown Structur e (TB S)
+Page 8 of 14
+
+--- Page 9 ---
+7. Acceptance Criteria Mapping
+Every PRISM-R requirement maps to at least one task, and each task’s acceptance criteria
+come from PRISM-R Section 7.ID Description Files / components Acceptance
+criteriaTest type Depends
+onOwnerEst.
+T-035 Accuracy and
+latency runtests/nfr At least 85%
+pass the sum
+check and 95%
+of at least 20
+runs finish
+within 60
+seconds, or the
+shortfall is
+documentedNFR (NT-01,
+NT-02)T-010, T-
+025, T-
+034TM1 3
+T-036 Privacy checks:
+scan logs, scan
+storage, scan for
+secrets, walk
+through consent
+and deletiontests/nfr, CI NT-03, NT-04,
+and NT-05 passNFR T-028, T-
+030TM1 2
+T-037 Run the edge-
+case checklist
+EC-01 to EC-14tests/e2e Each case
+behaves as
+PRISM-R
+describesE2E (E2E-
+08)T-025 TM2 4
+T-038 Deploy the pilot
+instance with
+persistent
+storage, daily
+backup, health
+check, and
+feature flagsdeploy configuration,
+scripts/backupData survives a
+restart, a
+backup file is
+created daily,
+and the flags
+workManual T-029 TM1 3
+T-039 Prepare and
+rehearse the
+demo with one
+anonymized real
+billdemo script Runs end to
+end twice with
+no manual fixesE2E T-035 TM2 2
+Requirement Tasks
+FR-01 Upload T-006, T-012
+FR-02 Extraction T-008, T-010
+FR-03 Sum check T-011, T-013PRISM-M T ask Br eakdown Structur e (TB S)
+Page 9 of 14
+
+--- Page 10 ---
+8. Dependency & Risk Analysis
+Critical paths
+Comparison path (about 27 hours): T-001, T-003, T-004, T-017, T-018, T-019, T-021, T-
+025, T-029, T-038.
+Extraction path (about 17 hours): T-001, T-007, T-008, T-009, T-010, then T-035. T-009
+also needs the sample bills from T-034.Requirement Tasks
+FR-04 Review and edit T-013
+FR-05 Bill details and tier T-014, T-015
+FR-06 Categorization T-016
+FR-07 Peer group T-017
+FR-08 Typical ranges T-018, T-025
+FR-09 Data sufficiency T-019, T-025
+FR-10 Flags T-020, T-021, T-022
+FR-11 Explanations and questions T-023, T-024
+FR-12 Price-only notice T-026
+FR-13 Consent T-028, T-029
+FR-14 Anonymization T-027, T-028
+FR-15 Aggregate-only display T-025
+FR-16 Reference code and deletion T-028, T-030
+FR-17 Admin review and maintenance T-017, T-031, T-032, T-033
+NFR performance and accuracy T-009, T-010, T-035
+NFR security, privacy, compliance T-002, T-027, T-028, T-030, T-036
+NFR availability and observability T-005, T-038
+Edge cases EC-01 to EC-14 T-037PRISM-M T ask Br eakdown Structur e (TB S)
+Page 10 of 14
+
+--- Page 11 ---
+Data path: bill collection and T-034, then T-031, which gives the benchmark real
+content for testing T-018.
+T-009 is the earliest decision point. If it fails, the extraction approach changes before most
+of the interface is built.
+Execution risks
+ID Risk Response Owner
+X1 Extraction accuracy is below target Run T-009 first. Keep manual entry.
+Revisit the approach if the spike
+failsTM1
+X2 Too few bills collected Start collection on day 1. T-031 lets
+bills enter as they arrive. Show
+limited-data labelsTM2
+X3 Provider terms are unacceptable Review terms inside T-009. Fall
+back to PRISM-I Option 1 or Option
+3TM1
+X4 Host has no persistent storage Choose the host before T-038 and
+test a restart earlyTM1
+X5 Only two people, so illness or delay
+blocks workKeep tasks to 5 hours or less,
+review each other’s pull requests,
+use the cut order in Section 11Both
+X6 Streamlit session handling causes
+problems on the review pageBuild T-013 early as a thin prototype TM2
+X7 Scope creep Changes go through the decision
+owner as a PRISM-R changeBoth
+X8 Real bills mishandled during testing Keep them outside the repository,
+redact before sharing, run T-036TM2
+X9 Model cost overrun Daily cap built into T-010 TM1
+X10 Merge conflicts in shared files
+(benchmark, flags, admin)Small pull requests and one owner
+per file at a timeBothPRISM-M T ask Br eakdown Structur e (TB S)
+Page 11 of 14
+
+--- Page 12 ---
+9. Definition of Done (DoD)
+A task is done when all of these are true.
+Code is implemented and the acceptance criteria in Section 6 are demonstrated.
+Tests for the task pass locally and in CI.
+Documentation is updated (README, configuration notes, and the data dictionary
+where relevant).
+CI is green on the merged branch.
+The other team member has reviewed the pull request.
+No identifiers appear in logs, fixtures, or the repository.
+10. Milestone Checkpoints
+Checkpoint Tasks Exit criteria
+CP-1 Foundations and
+dataT-001 to T-005, T-031,
+start of T-034CI green, database created from
+migrations, at least 5 consented bills
+collected and imported
+CP-2 Extraction works T-006 to T-013 A bill uploads and its items appear on
+the review screen, the spike decision
+is recorded, and the sum-check pass
+rate is known
+CP-3 Comparison and
+flagsT-014 to T-026 End-to-end results from the real
+benchmark with flags and
+explanations, shown to at least 2
+parents for feedback
+CP-4 Privacy, admin,
+validationT-027 to T-039 Contribution, deletion, and admin
+approval work, the accuracy, latency,
+and privacy checks are run, the edge-
+case checklist is complete, the pilot
+instance is deployed, and the demo is
+rehearsedPRISM-M T ask Br eakdown Structur e (TB S)
+Page 12 of 14
+
+--- Page 13 ---
+11. Execution Notes
+Working method: short-lived branches and pull requests, reviewed by the other team
+member and merged only when CI is green. A 15-minute daily check-in updates task
+status.
+Tests first for the rules: write the unit tests from the PRISM-R examples before T-011,
+T-018, T-019, and T-021.
+Data handling: real bills are never committed. Only synthetic examples go in the
+repository. Secrets live in environment variables and are rotated if shared.
+Parallel start: T-001 to T-005 and the bill collection (T-034) start together, then T-006
+to T-009.
+Open questions: close PRISM-S questions 7 before T-014, 1 and 9 at T-009, 2 before T-
+038, and 3 to 6 and 8 before the pilot.
+Cut order if time is short: the PRISM-R definition of done needs every functional
+requirement, so any cut must be agreed by the decision owner and recorded as a
+PRISM-R change. Cut in this order: (1) T-024 model wording, because templates
+suffice; (2) T-033 admin pages, by editing data files instead; (3) rules C and E inside T-
+021 and T-022; (4) polish in T-026. Never cut T-027, T-028, T-035, or T-036.
+Effort check: the estimates are proposals. Re-estimate after CP-1.
+12. Approval
+13. AI Gold Prompt Mapping
+13.1 Approved AI tool(s) per template: Primary: ChatGPT (task decomposition and
+planning). Secondary (repo-aware slicing and validation): Claude Code or Gemini Code
+Assist.Execution Plan Approval
+Approver(s)
+Date
+Decision Approved / Changes RequiredPRISM-M T ask Br eakdown Structur e (TB S)
+Page 13 of 14
+
+--- Page 14 ---
+13.2 Tool used for this draft: Claude (chat), based on inputs provided by the team and the
+PRISM-S design. The Gold Prompt was not run verbatim, and no repository existed to slice
+against. The team should confirm with the process owner whether a re-run through the
+approved tools is required before the gate.
+13.3 Quality check
+Can tasks be assigned independently? Yes, each has one owner and listed
+dependencies.
+Does every acceptance criterion map to at least one task? Yes, see Section 7.
+Are tasks small enough to complete and review safely? Yes, none is larger than 5
+hours.
+13.4 Evidence for PRISM Gate (M4 → M5)
+Evidence Status
+Completed Task Breakdown Structure Drafted
+Tasks mapped to acceptance criteria Done (Section 7)
+Clear ownership and dependencies Done (Section 6)
+Execution plan approved PendingPRISM-M T ask Br eakdown Structur e (TB S)
+Page 14 of 14
+
+================================================================================
+FILE: PRISM-I Solution Options Matrix.pdf
+================================================================================
+
+
+--- Page 1 ---
+PRISM-I Solution Options Matrix
+Initiative: Fair Bill, a hospital bill comparison tool for families in Bengaluru
+Company: SmartX Technologies | PRISM Phase: I – Intentional Solutioning | Project type:
+Web App
+Status: Draft for decision owner review | Draft date: 11 November 2026
+1. Problem Recap
+Problem statement: Families in Bengaluru cannot tell whether a normal-delivery
+hospital bill is typical for comparable hospitals. Existing price pages show city-level
+estimates, and no tool we found checks a family’s own Indian bill against real
+comparable bills (limited scan, to be validated).
+Key success metrics (proposed in PRISM-P): at least 25 pilot families receive a
+comparison within 60 seconds; at least 60% say it gave them a charge to review or a
+question to ask; at least 85% of test bills pass the sum check without manual
+correction; at least 15 consented bills before prototype testing and 30 before the pilot;
+at least 2 payers agree to a pilot discussion.
+References: PRISM-P Problem Brief
+(https://claude.ai/artifact/CyKPRbSY9KZi1jHY5J1u99) and PRISM-R PRD-Lite
+(https://claude.ai/artifact/GnqUDMkCkrLk8DpYdwEWp7).
+2. Constraints & Non-Negotiables
+Time / budget: A team of two, no dedicated budget, free or low-cost tools. The final
+delivery window is still to be confirmed.
+Technology / architecture: Usable from a phone browser with nothing to install. No
+integration with hospital or insurer systems. English-language bills only. The data
+structure must allow other procedures and cities to be added later through data, not
+rework.
+Compliance / security: Explicit consent before any bill is stored. Personal identifiers
+removed before storage. Deletion on request within 7 days. Review against the Digital
+Personal Data Protection Act, 2023. No personal identifiers in logs.
+Wording: The product must never state or imply that a hospital overcharged, or that
+one hospital is better than another in quality.PRISM-I Solution Options Matrix
+Page 1 of 9
+
+--- Page 2 ---
+Backward compatibility: None. This is a new product.
+Ranked non-functional priorities used for evaluation
+1. Privacy and compliance
+2. Accuracy of reading and comparison
+3. Explainability (every flag traces back to data and a rule)
+4. Performance (result within 60 seconds)
+5. Cost
+6. Scalability (consciously deferred beyond about 100 checks per day)
+3. Evaluation Criteria
+Each option is scored from 1 to 5, where 5 is best. For complexity, time, cost, and risk, 5
+means simplest, fastest, cheapest, and lowest risk. The weights and scores are the team’s
+proposed judgments, not measurements.
+4. Solution Options OverviewCriterion What it means Weight
+Functional fit How completely the PRISM-R requirements (FR-01
+to FR-17) are met25%
+NFR alignmentPrivacy, accuracy, explainability, and the 60-second
+target25%
+Complexity How hard it is for two people to build and maintain 15%
+Time to deliverHow quickly a working version can exist 15%
+Cost Build and running cost 10%
+Operational riskChance of failures that harm users or trust 10%
+# Option One-line summary
+1 Concierge service (minimal-change
+option)Families send a bill, the team reads and
+compares it by hand using a spreadsheet,
+and replies with a short reportPRISM-I Solution Options Matrix
+Page 2 of 9
+
+--- Page 3 ---
+5. Option 1 – Concierge Service: Description
+Architecture summary: No software product. A family sends a photo of the bill through a
+simple intake form or message. A team member types the line items into a spreadsheet,
+spreadsheet formulas compute peer-group ranges, and the team replies with a short
+written report.
+Key components: intake form, shared spreadsheet benchmark, report template, consent
+message, deletion log.
+How requirements are met: The comparison logic (FR-03 to FR-12) is done manually using
+the same rules as PRISM-R. Anonymization (FR-14) and deletion (FR-16) are manual steps.
+Upload (FR-01) and automatic extraction (FR-02) are not met.
+6. Option 1 – Pros / Cons / Risks
+Pros
+Fastest to start and nearly free
+Very accurate, because a person reads the bill
+Tests demand and the wording of explanations with real families before any code is
+written
+Builds the benchmark of real bills at the same time
+Cons
+Turnaround is minutes to hours, so the 60-second target is missed
+Does not scale beyond a handful of families
+Does not demonstrate a software product
+Uses a lot of the team’s time# Option One-line summary
+2 Hybrid pipeline A vision model reads the bill, rule-based
+code does every comparison and flag, and
+plain language is added on top
+3 Self-hosted OCR pipeline Open-source text recognition and parsing
+rules read the bill on our own server, with the
+same rule-based comparisonPRISM-I Solution Options Matrix
+Page 3 of 9
+
+--- Page 4 ---
+Risks and unknowns
+Bills shared through personal messaging apps and phones are hard to protect
+Manual categorization will be inconsistent between team members
+Reviewers may see it as not being a software product
+7. Option 2 – Hybrid Pipeline: Description
+Architecture summary: One Python web application with separate service modules
+inside it. A vision-capable language model reads the bill into structured line items. All
+comparisons, percentiles, and flags are computed by ordinary code against a relational
+database of consented, anonymized bills. The language model, or fixed templates, only
+turns the flags into plain-language explanations, and a filter blocks accusatory wording.
+Key components: web interface, upload validator, extraction service, categorizer,
+benchmark engine, flag engine, explanation service, contribution and privacy service,
+administrator tools, database.
+How requirements are met: FR-01 to FR-04 through the upload validator, extraction
+service, and review screen. FR-05 to FR-09 through the hospital resolver and benchmark
+engine. FR-10 to FR-12 through the flag and explanation services. FR-13 to FR-16 through
+the contribution and privacy service. FR-17 through the administrator tools.
+8. Option 2 – Pros / Cons / Risks
+Pros
+Meets all seventeen functional requirements
+Every flag traces to a rule and to data, which supports the neutral-wording rule
+The model is used only where it is strong (reading messy bills), and a user correction
+screen catches its mistakes
+Adding a procedure or city means adding data, not code
+Buildable by two people with one language and one deployable
+Cons
+Bill images go to a third-party service, which needs a privacy review
+There is a per-bill cost that has not yet been measured
+Needs storage that survives restarts, which some free hosts do not givePRISM-I Solution Options Matrix
+Page 4 of 9
+
+--- Page 5 ---
+Depends on the provider’s uptime and on its accuracy for Indian bills
+Risks and unknowns
+The provider’s retention and training terms, and whether data leaves India
+Real extraction accuracy on phone photos of Indian bills
+Text printed on a bill that tries to instruct the model
+Cost growth if usage rises
+9. Option 3 – Self-Hosted OCR Pipeline: Description
+Architecture summary: The same application structure as Option 2, but bill text is read
+by open-source optical character recognition running on our own server, and a set of
+parsing rules turns the text into line items. Explanations come from fixed templates only.
+No bill image leaves our own system.
+Key components: OCR engine, layout and table parser, hospital-specific parsing rules,
+plus the same benchmark engine, flag engine, and administrator tools as Option 2.
+How requirements are met: The same as Option 2, except that FR-02 depends on parsing
+rules, and FR-11 uses templates only.
+10. Option 3 – Self-Hosted OCR Pipeline: Pros / Cons / Risks
+Pros
+No third-party processing of bill images, which is the strongest privacy position
+No per-bill service fees
+Fully deterministic outputs
+Cons
+Bill layouts vary a lot, so parsing rules are hard to write and keep up to date
+Handwritten and low-quality photos are read poorly
+Needs more server memory and setup, which free hosts may not give
+Much more development time
+Risks and unknowns
+May miss the 85% sum-check target and push many corrections onto users
+Two people may not have the capacity to build and tune the parserPRISM-I Solution Options Matrix
+Page 5 of 9
+
+--- Page 6 ---
+Hosting limits for OCR engines on a free or low-cost plan
+11. Tradeoff Comparison Matrix
+Notes on the scores
+Option 1 scores low on functional fit and NFR fit because it cannot meet the 60-
+second target and relies on manual handling of private documents.
+Option 2 scores 4 on NFR fit: it is strong on accuracy (with user correction),
+explainability, and speed, and weaker on privacy because of third-party processing.
+Option 3 is strongest on privacy but weak on accuracy, so its NFR score is a middle
+value.
+Sensitivity: if the delivery window is very short, or if extraction tests on real bills fail,
+Option 1 becomes the better choice.
+12. Recommended Option
+Option 2, the hybrid pipeline.
+Why this option
+It is the only option that meets all functional requirements and the 60-second target.
+Putting all comparisons and flags in plain code keeps every result traceable and keeps
+wording under control.
+The model is limited to reading bills and wording, with user correction as a safety net.
+It can grow to new procedures and cities through data.
+Tradeoffs being acceptedOption Functional fit
+(25%)NFR fit
+(25%)Complexity
+(15%)Time
+(15%)Cost
+(10%)Risk
+(10%)Weighted
+score
+1. Concierge
+service2 2 5 5 5 3 3.30
+2. Hybrid
+pipeline5 4 3 3 3 3 3.75
+3. Self-hosted
+OCR3 3 2 2 4 2 2.70PRISM-I Solution Options Matrix
+Page 6 of 9
+
+--- Page 7 ---
+Bill images are processed by a third-party service. This is managed with a consent
+notice, a provider that does not retain or train on the images, in-memory handling, and
+a spending cap.
+A per-bill cost that must be measured in the provider spike.
+A single-instance deployment without a formal availability guarantee.
+How Option 1 is still used: the concierge method runs alongside the build to validate
+demand with the first parents, collect the first bills, and act as the fallback if the provider
+fails or the privacy review blocks third-party processing.
+13. Rejected Options & Rationale
+14. Key Risks & MitigationsOption Decision Rationale
+Option 1 as the product Rejected as the product,
+kept as a validation method
+and fallbackCannot meet the 60-second
+target or scale, and is not a
+software product
+Option 3 Deferred Highest development effort
+and lowest expected
+accuracy. Revisit only if the
+privacy review forbids third-
+party processing
+Language model only (one
+prompt reads the bill,
+compares it, and judges it)Rejected Flags cannot be traced to
+data, results can change
+between runs, and neutral
+wording is hard to guarantee
+Risk Mitigation
+Provider retains bill images or uses them for
+trainingChoose a provider and settings that do not
+retain or train. Confirm in writing during the
+spike. Process images in memory onlyPRISM-I Solution Options Matrix
+Page 7 of 9
+
+--- Page 8 ---
+15. Open QuestionsRisk Mitigation
+Extraction accuracy is below target Run a spike on at least 10 real bills with two
+providers. Keep the user correction screen.
+Fall back to manual entry
+Not enough bills for credible ranges Collect through personal networks first,
+show how many bills each range uses, label
+limited data
+Bill text tries to instruct the model Treat model output as data, validate it
+against a strict schema, give the model no
+tools
+Free host loses stored data on restart Use a host with persistent storage, or a
+managed database, and take daily backups
+Cost grows Set a daily cap on extraction calls and a per-
+session limit
+# Question for PRISM-S Owner
+1 Which provider is chosen after the spike, and
+what are its retention, training, and data-
+location terms?Team Member 1
+2 Where will the application be hosted, and does
+that host keep data across restarts?Team Member 1
+3 Is a cross-border transfer of bill images
+acceptable under the privacy review?Decision Owner, with mentor
+review
+4 How will the administrator log in, and who may
+act as administrator?Decision Owner
+5 What is the measured cost per bill, and what
+daily cap is acceptable?Team Member 1PRISM-I Solution Options Matrix
+Page 8 of 9
+
+--- Page 9 ---
+16. Decision & Approval
+17. AI Gold Prompt Mapping
+17.1 Approved AI tool(s) per template: Primary: ChatGPT. Secondary (feasibility spikes
+and repo checks): Claude Code.
+17.2 Tool used for this draft: Claude (chat), based on inputs provided by the team. The
+Gold Prompt was not run verbatim, and Claude in chat is not the listed secondary tool
+(Claude Code). The team should confirm with the process owner whether a re-run
+through the approved tools is required before the gate.
+17.3 Quality check
+Are there at least 3 viable options? Yes, including a minimal-change option.
+Are tradeoffs explicit and tied to NFRs? Yes, see Sections 3 and 11.
+Is the recommendation clearly justified? Yes, see Section 12.
+17.4 Evidence for PRISM Gate (M2 → M3)Decision Owner Approval
+Name
+Signature / Approval
+Date
+Evidence Status
+Completed Solution Options MatrixDrafted
+Minimum three options evaluated Done
+Tradeoff comparison completed Done
+Decision owner approval Pending
+Updated risks and open questions DraftedPRISM-I Solution Options Matrix
+Page 9 of 9

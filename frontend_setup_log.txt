@@ -1,0 +1,50 @@
+=== Step 1: Check for existing Node.js ===
+Node.js not found. Downloading portable zip version...
+=== Step 2: Downloading Node.js portable ===
+Downloading from https://nodejs.org/dist/v20.11.0/node-v20.11.0-win-x64.zip...
+Downloaded: 29701389 bytes
+=== Step 3: Extracting Node.js ===
+Extraction complete.
+Moved to C:\Users\Inno\Desktop\fair_bill\nodejs
+Node.js installed: v20.11.0
+=== Step 4: npm install in frontend ===
+Running npm install (this takes a few minutes)...
+npm install exit code: 0
+npm stderr: 
+npm stdout (last 2000 chars): 
+added 1296 packages, and audited 1297 packages in 3m
+
+274 packages are looking for funding
+  run `npm fund` for details
+
+35 vulnerabilities (15 low, 7 moderate, 13 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+node_modules created with 859 packages
+=== Step 5: Starting React dev server ===
+Starting npm start...
+Frontend will be available at http://localhost:3000
+Waiting for dev server to start...
+Dev server exited with code: 1
+Output: 
+> fair-bill-frontend@1.0.0 start
+> react-scripts start
+
+Cannot find module 'ajv/dist/compile/codegen'
+Require stack:
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\ajv-keywords\dist\definitions\typeof.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\ajv-keywords\dist\keywords\typeof.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\ajv-keywords\dist\keywords\index.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\ajv-keywords\dist\index.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\schema-utils\dist\validate.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\schema-utils\dist\index.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\webpack-dev-server\lib\Server.js
+- C:\Users\Inno\Desktop\fair_bill\frontend\node_modules\react-scripts\scripts\start.js
+

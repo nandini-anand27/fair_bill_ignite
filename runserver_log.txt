@@ -1,0 +1,1120 @@
+﻿python : Watching for file changes with StatReloader
+At line:1 char:48
++ ... ill\backend" ; python manage.py runserver 127.0.0.1:8000 2>&1 | Out-F ...
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Watching for fi...th StatReloader 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[13/Nov/2026 17:42:13] "POST /api/accounts/admin-login/ HTTP/1.1" 200 677
+[13/Nov/2026 17:42:38] "POST /api/accounts/admin-login/ HTTP/1.1" 200 677
+[13/Nov/2026 17:42:39] "POST /api/accounts/register/ HTTP/1.1" 201 688
+[13/Nov/2026 17:42:39] "POST /api/accounts/login/ HTTP/1.1" 200 681
+Internal Server Error: /api/bills/upload/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File 
+"C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", 
+line 85, in inner
+    return func(*args, **kwds)
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\views.py", line 91, in 
+create
+    'bill': BillSerializer(bill).data,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 585, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\serializers.py", line 
+31, in to_representation
+    data = super().to_representation(instance)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 537, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 398, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 386, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 1110, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 1213, in get_field_names
+    assert field_name in fields, (
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: The field 'items' was declared on serializer BillSerializer, 
+but has not been included in the 'fields' option.
+[13/Nov/2026 17:42:40] "POST /api/bills/upload/ HTTP/1.1" 500 162343
+C:\Users\Inno\Desktop\fair_bill\backend\bills\serializers.py changed, 
+reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 17:40:58
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\serializers.py changed, 
+reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 17:43:28
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+[13/Nov/2026 17:48:53] "POST /api/accounts/admin-login/ HTTP/1.1" 200 677
+Bad Request: /api/accounts/register/
+[13/Nov/2026 17:48:53] "POST /api/accounts/register/ HTTP/1.1" 400 107
+[13/Nov/2026 17:48:54] "POST /api/accounts/login/ HTTP/1.1" 200 681
+[13/Nov/2026 17:49:35] "POST /api/accounts/admin-login/ HTTP/1.1" 200 677
+Bad Request: /api/accounts/register/
+[13/Nov/2026 17:49:35] "POST /api/accounts/register/ HTTP/1.1" 400 107
+[13/Nov/2026 17:49:36] "POST /api/accounts/login/ HTTP/1.1" 200 681
+[13/Nov/2026 17:49:36] "POST /api/bills/upload/ HTTP/1.1" 201 1539
+[13/Nov/2026 17:49:36] "POST /api/bills/1/compare/ HTTP/1.1" 200 2384
+Not Found: /favicon.ico
+[13/Nov/2026 18:22:51] "GET /favicon.ico HTTP/1.1" 404 2928
+Not Found: /favicon.ico
+[13/Nov/2026 18:22:51] "GET /favicon.ico HTTP/1.1" 404 2928
+[13/Nov/2026 18:23:07] "OPTIONS /api/accounts/login/ HTTP/1.1" 200 0
+Bad Request: /api/accounts/login/
+[13/Nov/2026 18:23:08] "POST /api/accounts/login/ HTTP/1.1" 400 45
+[13/Nov/2026 18:23:45] "OPTIONS /api/accounts/admin-login/ HTTP/1.1" 200 0
+[13/Nov/2026 18:23:46] "POST /api/accounts/admin-login/ HTTP/1.1" 200 677
+[13/Nov/2026 18:23:46] "OPTIONS /api/admin-panel/users/stats/ HTTP/1.1" 200 0
+[13/Nov/2026 18:23:46] "OPTIONS /api/admin-panel/users/stats/ HTTP/1.1" 200 0
+[13/Nov/2026 18:23:46] "GET /api/admin-panel/users/stats/ HTTP/1.1" 200 144
+[13/Nov/2026 18:23:46] "GET /api/admin-panel/users/stats/ HTTP/1.1" 200 144
+[13/Nov/2026 18:23:54] "OPTIONS /api/admin-panel/bills/pending/ HTTP/1.1" 200 0
+[13/Nov/2026 18:23:54] "OPTIONS /api/admin-panel/bills/pending/ HTTP/1.1" 200 0
+[13/Nov/2026 18:23:54] "GET /api/admin-panel/bills/pending/ HTTP/1.1" 200 1825
+[13/Nov/2026 18:23:54] "GET /api/admin-panel/bills/pending/ HTTP/1.1" 200 1825
+[13/Nov/2026 18:23:58] "GET /api/admin-panel/users/stats/ HTTP/1.1" 200 144
+[13/Nov/2026 18:23:58] "GET /api/admin-panel/users/stats/ HTTP/1.1" 200 144
+[13/Nov/2026 18:24:25] "OPTIONS /api/accounts/register/ HTTP/1.1" 200 0
+Bad Request: /api/accounts/register/
+[13/Nov/2026 18:24:25] "POST /api/accounts/register/ HTTP/1.1" 400 114
+[13/Nov/2026 18:24:37] "POST /api/accounts/register/ HTTP/1.1" 201 686
+[13/Nov/2026 18:24:37] "OPTIONS /api/bills/ HTTP/1.1" 200 0
+[13/Nov/2026 18:24:37] "OPTIONS /api/bills/ HTTP/1.1" 200 0
+[13/Nov/2026 18:24:37] "GET /api/bills/ HTTP/1.1" 200 2
+[13/Nov/2026 18:24:37] "GET /api/bills/ HTTP/1.1" 200 2
+[13/Nov/2026 18:25:44] "OPTIONS /api/bills/upload/ HTTP/1.1" 200 0
+[13/Nov/2026 18:25:44] "POST /api/bills/upload/ HTTP/1.1" 201 928
+[13/Nov/2026 18:25:44] "OPTIONS /api/bills/2/ HTTP/1.1" 200 0
+[13/Nov/2026 18:25:44] "OPTIONS /api/bills/2/ HTTP/1.1" 200 0
+[13/Nov/2026 18:25:44] "GET /api/bills/2/ HTTP/1.1" 200 760
+[13/Nov/2026 18:25:44] "GET /api/bills/2/ HTTP/1.1" 200 760
+[13/Nov/2026 18:25:48] "OPTIONS /api/bills/2/update/ HTTP/1.1" 200 0
+Bad Request: /api/bills/2/update/
+[13/Nov/2026 18:25:48] "PUT /api/bills/2/update/ HTTP/1.1" 400 86
+Bad Request: /api/bills/2/update/
+[13/Nov/2026 18:25:50] "PUT /api/bills/2/update/ HTTP/1.1" 400 86
+Bad Request: /api/bills/2/update/
+[13/Nov/2026 18:41:51] "PUT /api/bills/2/update/ HTTP/1.1" 400 86
+[13/Nov/2026 18:43:12] "PUT /api/bills/2/update/ HTTP/1.1" 200 936
+[13/Nov/2026 18:43:12] "OPTIONS /api/bills/2/compare/ HTTP/1.1" 200 0
+[13/Nov/2026 18:43:13] "POST /api/bills/2/compare/ HTTP/1.1" 200 1772
+[13/Nov/2026 18:43:13] "GET /api/bills/2/ HTTP/1.1" 200 1210
+[13/Nov/2026 18:43:13] "GET /api/bills/2/ HTTP/1.1" 200 1210
+C:\Users\Inno\Desktop\fair_bill\backend\bills\models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 17:43:41
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 18:49:43
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 18:49:53
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\models.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 18:50:08
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 18:50:29
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File 
+"C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 
+1044, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File 
+"C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 
+995, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\autoreload.py", line 83, in wrapper
+    raise e
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\autoreload.py", line 66, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\management\commands\runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\management\base.py", line 498, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\registry.py", line 100, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\urls.py", line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 541, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 729, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 722, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\importlib\__i
+nit__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Inno\Desktop\fair_bill\backend\fair_bill_project\urls.py", 
+line 9, in <module>
+    path('api/bills/', include('bills.urls')),
+                       ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\importlib\__i
+nit__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\urls.py", line 2, in 
+<module>
+    from . import views
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\views.py", line 7, in 
+<module>
+    from .serializers import (
+    ...<3 lines>...
+    )
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\serializers.py", line 3, 
+in <module>
+    from .services import normalize_item_key
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py", line 331
+    ])
+    ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '{' on 
+line 327
+C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py changed, reloading.
+Performing system checks...
+
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File 
+"C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 
+1044, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File 
+"C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\threading.py", line 
+995, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\autoreload.py", line 83, in wrapper
+    raise e
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\autoreload.py", line 66, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\management\commands\runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\management\base.py", line 498, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\registry.py", line 100, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\checks\urls.py", line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 541, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 729, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\resolvers.py", line 722, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\importlib\__i
+nit__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Inno\Desktop\fair_bill\backend\fair_bill_project\urls.py", 
+line 9, in <module>
+    path('api/bills/', include('bills.urls')),
+                       ~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\urls\conf.py", line 39, in include
+    urlconf_module = import_module(urlconf_module)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\importlib\__i
+nit__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\urls.py", line 2, in 
+<module>
+    from . import views
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\views.py", line 7, in 
+<module>
+    from .serializers import (
+    ...<3 lines>...
+    )
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\serializers.py", line 3, 
+in <module>
+    from .services import normalize_item_key
+  File "C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py", line 331
+    ])
+    ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '{' on 
+line 327
+Performing system checks...
+
+C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Inno\Desktop\fair_bill\backend\bills\services.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 13, 2026 - 19:21:56
+Django version 6.1.3, using settings 'fair_bill_project.settings'
+Starting WSGI development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Watching for file changes with StatReloader
+Not Found: /favicon.ico
+[13/Nov/2026 19:24:05] "GET /favicon.ico HTTP/1.1" 404 2928
+Not Found: /favicon.ico
+[13/Nov/2026 19:24:05] "GET /favicon.ico HTTP/1.1" 404 2928
+[13/Nov/2026 19:24:11] "OPTIONS /api/accounts/login/ HTTP/1.1" 200 0
+[13/Nov/2026 19:24:13] "POST /api/accounts/login/ HTTP/1.1" 200 679
+[13/Nov/2026 19:24:13] "OPTIONS /api/bills/ HTTP/1.1" 200 0
+[13/Nov/2026 19:24:13] "OPTIONS /api/bills/ HTTP/1.1" 200 0
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:13] "GET /api/bills/ HTTP/1.1" 500 23108
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:13] "GET /api/bills/ HTTP/1.1" 500 23108
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:31] "GET /api/bills/ HTTP/1.1" 500 23108
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:31] "GET /api/bills/ HTTP/1.1" 500 23108
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:34] "GET /api/bills/ HTTP/1.1" 500 23108
+Internal Server Error: /api/bills/
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: bills_bill.city
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\decorators\csrf.py", line 64, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 474, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 485, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\mixins.py", line 46, in list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 818, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\rest_framework\serializers.py", line 737, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 473, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 2287, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\query.py", line 131, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\models\sql\compiler.py", line 1643, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\utils.py", line 94, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Python313\Lib\site-packages
+\django\db\backends\sqlite3\base.py", line 359, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: bills_bill.city
+[13/Nov/2026 19:24:34] "GET /api/bills/ HTTP/1.1" 500 23108

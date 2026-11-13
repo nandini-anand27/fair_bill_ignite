@@ -1,0 +1,4 @@
+node.exe exists: False
+msi exists: True
+msi size: 26636288 bytes
+node.exe not found in PATH

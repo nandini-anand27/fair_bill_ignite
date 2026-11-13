@@ -1,0 +1,15 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+db.sqlite3
+media/
+
+# VS Code
+.vscode/
+
+# OS junk
+Thumbs.db
+Desktop.ini
