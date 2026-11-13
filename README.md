@@ -112,23 +112,29 @@ The frontend runs on `http://localhost:3000`
 - `POST /api/accounts/login/` - User login
 - `POST /api/accounts/admin-login/` - Admin login
 - `GET /api/accounts/profile/` - Get user profile
+- `POST /api/accounts/token/refresh/` - Refresh JWT token
 
 ### Bills
 - `GET /api/bills/` - List user's bills
 - `GET /api/bills/:id/` - Get bill detail
 - `POST /api/bills/upload/` - Upload new bill with items
+- `POST /api/bills/extract-image/` - Extract line items from a bill image
 - `PUT /api/bills/:id/update/` - Update bill items
 - `POST /api/bills/:id/compare/` - Run comparison and flags
 - `POST /api/bills/consent/` - Consent to contribute
 - `POST /api/bills/delete/` - Delete contribution by reference code
+- `GET /api/bills/hospitals/` - List hospitals for bill entry
 
 ### Admin
 - `GET /api/admin-panel/users/` - List all users
 - `PATCH /api/admin-panel/users/:id/toggle-active/` - Activate/deactivate user
 - `DELETE /api/admin-panel/users/:id/delete/` - Delete user
 - `GET /api/admin-panel/users/stats/` - Dashboard statistics
-- `GET /api/admin-panel/bills/pending/` - Pending bills
+- `GET /api/admin-panel/bills/pending/` - Pending bills awaiting review
 - `GET /api/admin-panel/bills/all/` - All bills
-- `POST /api/admin-panel/bills/:id/approve/` - Approve bill
+- `POST /api/admin-panel/bills/:id/approve/` - Approve bill for benchmark
 - `POST /api/admin-panel/bills/:id/reject/` - Reject bill
-- `GET /api/admin-panel/audit-log/` - Audit log
+- `GET /api/admin-panel/hospitals/` - List hospitals
+- `POST /api/admin-panel/hospitals/` - Add a hospital
+- `PUT/DELETE /api/admin-panel/hospitals/:id/` - Update or remove a hospital
+- `GET /api/admin-panel/audit-log/` - Audit log (last 200 entries)
