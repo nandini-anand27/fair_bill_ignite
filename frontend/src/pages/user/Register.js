@@ -8,7 +8,7 @@ export default function Register() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,19 +21,25 @@ export default function Register() {
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/dashboard');
     } catch (err) {
-      const errs = err.response?.data;
-      setError(errs?.password?.[0] || errs?.email?.[0] || errs?.error || 'Registration failed.');
+      const d = err.response?.data;
+      setError(d?.password?.[0] || d?.email?.[0] || d?.detail || 'Registration failed.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="auth-wrapper">
-      <div className="auth-card">
-        <h2>Create Account</h2>
-        <p className="subtitle">Join Fair Bill to compare your hospital bill</p>
+    <div className="auth-wrapper" style={{ background: 'linear-gradient(135deg, var(--primary-light) 0%, var(--bg-cream) 100%)' }}>
+      <div className="auth-card" style={{ maxWidth: 480 }}>
+
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <span style={{ fontSize: '3rem', display: 'block', marginBottom: '.5rem' }}>🌿</span>
+          <h2>Create your account</h2>
+          <p className="subtitle">Join families who check their hospital bills with clarity.</p>
+        </div>
+
         {error && <div className="alert alert-danger">{error}</div>}
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full Name</label>
@@ -45,7 +51,7 @@ export default function Register() {
           </div>
           <div className="form-group">
             <label>Phone (optional)</label>
-            <input type="text" name="phone" value={form.phone} onChange={handleChange} placeholder="+91 ..." />
+            <input type="text" name="phone" value={form.phone} onChange={handleChange} placeholder="+91 98765 43210" />
           </div>
           <div className="form-group">
             <label>Password</label>
@@ -53,14 +59,16 @@ export default function Register() {
           </div>
           <div className="form-group">
             <label>Confirm Password</label>
-            <input type="password" name="password2" value={form.password2} onChange={handleChange} required placeholder="Re-enter password" />
+            <input type="password" name="password2" value={form.password2} onChange={handleChange} required placeholder="Repeat your password" />
           </div>
-          <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={loading}>
-            {loading ? 'Creating account...' : 'Register'}
+
+          <button type="submit" className="btn btn-primary btn-block btn-lg" style={{ marginTop: '1rem' }} disabled={loading}>
+            {loading ? '⏳ Creating account…' : 'Create Account →'}
           </button>
         </form>
+
         <div className="auth-footer">
-          Already have an account? <Link to="/login">Log in</Link>
+          Already have an account? <Link to="/login">Sign in</Link>
         </div>
       </div>
     </div>

@@ -2,11 +2,11 @@ import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const userStr = localStorage.getItem('user');
-  const user = userStr ? JSON.parse(userStr) : null;
-  const isAdmin = user && (user.is_admin || user.is_staff);
+  const navigate  = useNavigate();
+  const location  = useLocation();
+  const userStr   = localStorage.getItem('user');
+  const user      = userStr ? JSON.parse(userStr) : null;
+  const isAdmin   = user && (user.is_admin || user.is_staff);
   const isAuthPage = ['/login', '/register', '/admin-login'].includes(location.pathname);
 
   if (!user || isAuthPage) return null;
@@ -18,27 +18,44 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <Link to={isAdmin ? '/admin/dashboard' : '/dashboard'} className="navbar-brand">
-        Fair Bill {isAdmin && <span style={{ fontSize: '.8rem', color: 'var(--gray-500)' }}>| Admin</span>}
+      {/* Brand */}
+      <Link
+        to={isAdmin ? '/admin/dashboard' : '/dashboard'}
+        className="navbar-brand"
+        style={{ textDecoration: 'none' }}
+      >
+        <span style={{ fontSize: '1.4rem' }}>🏥</span>
+        Fair Bill
+        <span className="brand-dot" />
+        {isAdmin && (
+          <span style={{ fontSize: '.75rem', fontWeight: 600, color: 'var(--accent)', background: 'var(--accent-light)', padding: '.1rem .5rem', borderRadius: 20, marginLeft: '.25rem' }}>
+            Admin
+          </span>
+        )}
       </Link>
+
+      {/* Links */}
       <div className="navbar-links">
         {isAdmin ? (
           <>
             <Link to="/admin/dashboard">Dashboard</Link>
             <Link to="/admin/users">Users</Link>
             <Link to="/admin/bills">Bills</Link>
-            <Link to="/admin/monitoring">Monitoring</Link>
+            <Link to="/admin/monitoring">Audit Log</Link>
           </>
         ) : (
           <>
             <Link to="/dashboard">My Bills</Link>
             <Link to="/upload">Upload Bill</Link>
-            <Link to="/delete-bill">Delete My Contribution</Link>
+            <Link to="/delete-bill">Delete Contribution</Link>
           </>
         )}
+
         <div className="navbar-user">
-          <span className="badge">{user.email}</span>
-          <button onClick={handleLogout} className="btn btn-secondary btn-sm">Logout</button>
+          <span className="user-pill" title={user.email}>{user.email}</span>
+          <button onClick={handleLogout} className="btn btn-secondary btn-sm">
+            Sign out
+          </button>
         </div>
       </div>
     </nav>

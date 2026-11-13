@@ -4,8 +4,19 @@ __pycache__/
 *$py.class
 venv/
 env/
+.env
+*.env
 db.sqlite3
 media/
+*.log
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+*.local
 
 # VS Code
 .vscode/
@@ -13,3 +24,9 @@ media/
 # OS junk
 Thumbs.db
 Desktop.ini
+.DS_Store
+
+# Secrets & keys
+*.pem
+*.key
+secrets.json

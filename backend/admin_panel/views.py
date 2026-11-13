@@ -1,6 +1,8 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
 from django.db.models import Count, Q, Sum, Avg
 from django.utils import timezone
 from datetime import timedelta
@@ -12,6 +14,38 @@ from bills.serializers import HospitalSerializer, BillSerializer
 import logging
 
 logger = logging.getLogger(__name__)
+
+
+class LoginView(generics.GenericAPIView):
+    """Authenticate user and return an auth token for the frontend."""
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        if not email or not password:
+            return Response({'error': 'Please provide both email and password.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Authenticate using email as the username field
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            if not user.is_active:
+                return Response({'error': 'This account has been deactivated.'}, status=status.HTTP_403_FORBIDDEN)
+            
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({
+                'token': token.key,
+                'message': 'Login successful',
+                'user': {
+                    'id': user.id,
+                    'email': user.email,
+                    'is_admin': getattr(user, 'is_admin', False)
+                }
+            }, status=status.HTTP_200_OK)
+
+        return Response({'error': 'Invalid email or password.'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AdminPermission(IsAuthenticated):
@@ -97,11 +131,8 @@ class AdminStatsView(generics.GenericAPIView):
         rejected_bills = Bill.objects.filter(status=Bill.BillStatus.REJECTED).count()
         total_hospitals = Hospital.objects.count()
 
-        # Bills in the last 7 days
         week_ago = timezone.now() - timedelta(days=7)
         bills_this_week = Bill.objects.filter(created_at__gte=week_ago).count()
-
-        # Bills comparison stats
         bills_with_flags = Bill.objects.exclude(flags=[]).count()
 
         return Response({

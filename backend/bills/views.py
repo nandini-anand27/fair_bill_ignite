@@ -1,6 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.db import transaction
 from django.utils import timezone
 from .models import Bill, BillItem, Hospital, CategoryMap, HospitalPackage, AuditLog
@@ -14,6 +15,7 @@ from .services import (
     compare_bill, run_flags, explain_flags,
     contribute_bill, request_deletion,
 )
+from .image_extractor import extract_bill_from_file
 import logging
 
 logger = logging.getLogger(__name__)
@@ -339,3 +341,49 @@ class HospitalListView(generics.ListAPIView):
 
 
 
+
+
+class BillImageUploadView(generics.GenericAPIView):
+    """
+    Accept a photo (JPG/PNG) or PDF of a hospital bill, run text extraction,
+    and return parsed line items for the user to review and correct.
+    POST /api/bills/extract-image/
+    """
+    permission_classes = [IsAuthenticated]
+    parser_classes     = [MultiPartParser, FormParser]
+
+    def post(self, request, *args, **kwargs):
+        file_obj = request.FILES.get('bill_image')
+        if not file_obj:
+            return Response(
+                {'error': 'No file provided. Send a JPG, PNG, or PDF as bill_image.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Size check: 15 MB
+        if file_obj.size > 15 * 1024 * 1024:
+            return Response(
+                {'error': 'File too large. Maximum size is 15 MB.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        file_bytes = file_obj.read()
+        result     = extract_bill_from_file(file_bytes, file_obj.name)
+
+        if not result.get('success'):
+            return Response(
+                {'error': result.get('error', 'Could not read the file.'), 'items': []},
+                status=status.HTTP_422_UNPROCESSABLE_ENTITY
+            )
+
+        return Response({
+            'items':       result.get('items', []),
+            'method':      result.get('method', 'unknown'),
+            'page_count':  result.get('page_count'),
+            'message':     result.get('message'),
+            'item_count':  len(result.get('items', [])),
+            'note': (
+                'These items were automatically extracted from your bill. '
+                'Please review and correct any errors before submitting.'
+            ),
+        }, status=status.HTTP_200_OK)

@@ -1,0 +1,335 @@
+﻿python : Traceback (most recent call last):
+At line:1 char:48
++ ... Inno\Desktop\fair_bill\backend" ; python 
+manage.py check 2>&1 | Out-F ...
++                                       
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback  
+   (most recent call last)::String) [], RemoteExceptio  
+  n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+731, in url_patterns
+    iter(patterns)
+    ~~~~^^^^^^^^^^
+TypeError: 'module' object is not iterable
+
+The above exception was the direct cause of the 
+following exception:
+
+Traceback (most recent call last):
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 17, in <module>
+    main()
+    ~~~~^^
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 14, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 443, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 437, in execute
+    
+self.fetch_command(subcommand).run_from_argv(self.argv)
+    
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 422, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 466, in execute
+    output = self.handle(*args, **options)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\commands\
+check.py", line 81, in handle
+    self.check(
+    ~~~~~~~~~~^
+        app_configs=app_configs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        databases=options["databases"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 498, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\registry.py",
+ line 100, in run_checks
+    new_errors = check(app_configs=app_configs, 
+databases=databases)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+542, in check
+    messages.extend(check_resolver(pattern))
+                    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+541, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\utils\functional.py", 
+line 47, in __get__
+    res = instance.__dict__[self.name] = 
+self.func(instance)
+                                         
+~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+739, in url_patterns
+    raise ImproperlyConfigured(msg.format(name=self.urlc
+onf_name)) from e
+django.core.exceptions.ImproperlyConfigured: The 
+included URLconf '<module 'accounts.urls' from 'C:\\User
+s\\Inno\\Desktop\\fair_bill\\backend\\accounts\\urls.py'
+>' does not appear to have any patterns in it. If you 
+see the 'urlpatterns' variable with valid patterns in 
+the file then the issue is probably caused by a 
+circular import.
+python : Traceback (most recent call last):
+At line:1 char:152
++ ... xt -Encoding utf8; python manage.py 
+makemigrations bills 2>&1 | Out-F ...
++                        
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback  
+   (most recent call last)::String) [], RemoteExceptio  
+  n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+731, in url_patterns
+    iter(patterns)
+    ~~~~^^^^^^^^^^
+TypeError: 'module' object is not iterable
+
+The above exception was the direct cause of the 
+following exception:
+
+Traceback (most recent call last):
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 17, in <module>
+    main()
+    ~~~~^^
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 14, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 443, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 437, in execute
+    
+self.fetch_command(subcommand).run_from_argv(self.argv)
+    
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 422, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 463, in execute
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 498, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\registry.py",
+ line 100, in run_checks
+    new_errors = check(app_configs=app_configs, 
+databases=databases)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+542, in check
+    messages.extend(check_resolver(pattern))
+                    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+541, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\utils\functional.py", 
+line 47, in __get__
+    res = instance.__dict__[self.name] = 
+self.func(instance)
+                                         
+~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+739, in url_patterns
+    raise ImproperlyConfigured(msg.format(name=self.urlc
+onf_name)) from e
+django.core.exceptions.ImproperlyConfigured: The 
+included URLconf '<module 'accounts.urls' from 'C:\\User
+s\\Inno\\Desktop\\fair_bill\\backend\\accounts\\urls.py'
+>' does not appear to have any patterns in it. If you 
+see the 'urlpatterns' variable with valid patterns in 
+the file then the issue is probably caused by a 
+circular import.
+python : Traceback (most recent call last):
+At line:1 char:279
++ ... jango_check.txt -Encoding utf8; python manage.py 
+migrate 2>&1 | Out-F ...
++                                     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback  
+   (most recent call last)::String) [], RemoteExceptio  
+  n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+731, in url_patterns
+    iter(patterns)
+    ~~~~^^^^^^^^^^
+TypeError: 'module' object is not iterable
+
+The above exception was the direct cause of the 
+following exception:
+
+Traceback (most recent call last):
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 17, in <module>
+    main()
+    ~~~~^^
+  File 
+"C:\Users\Inno\Desktop\fair_bill\backend\manage.py", 
+line 14, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 443, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\__init__.
+py", line 437, in execute
+    
+self.fetch_command(subcommand).run_from_argv(self.argv)
+    
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 422, in run_from_argv
+    self.execute(*args, **cmd_options)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 463, in execute
+    self.check(**check_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\management\base.py",
+ line 498, in check
+    all_issues = checks.run_checks(
+        app_configs=app_configs,
+    ...<2 lines>...
+        databases=databases,
+    )
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\registry.py",
+ line 100, in run_checks
+    new_errors = check(app_configs=app_configs, 
+databases=databases)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 16, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+542, in check
+    messages.extend(check_resolver(pattern))
+                    ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\core\checks\urls.py", 
+line 26, in check_resolver
+    return check_method()
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+541, in check
+    for pattern in self.url_patterns:
+                   ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\utils\functional.py", 
+line 47, in __get__
+    res = instance.__dict__[self.name] = 
+self.func(instance)
+                                         
+~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Inno\AppData\Local\Programs\Python\Pyth
+on313\Lib\site-packages\django\urls\resolvers.py", line 
+739, in url_patterns
+    raise ImproperlyConfigured(msg.format(name=self.urlc
+onf_name)) from e
+django.core.exceptions.ImproperlyConfigured: The 
+included URLconf '<module 'accounts.urls' from 'C:\\User
+s\\Inno\\Desktop\\fair_bill\\backend\\accounts\\urls.py'
+>' does not appear to have any patterns in it. If you 
+see the 'urlpatterns' variable with valid patterns in 
+the file then the issue is probably caused by a 
+circular import.

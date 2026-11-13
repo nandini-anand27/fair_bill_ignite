@@ -1,0 +1,17 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+*.env
+db.sqlite3
+media/
+*.log
+staticfiles/
+
+# Secrets
+secrets.json
+*.pem
+*.key

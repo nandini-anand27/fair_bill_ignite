@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { billAPI } from '../../services/api';
+import DoctorTranslator from '../../components/DoctorTranslator';
 
 export default function ReviewBill() {
   const { id } = useParams();
@@ -75,7 +76,6 @@ export default function ReviewBill() {
     setSaving(true);
     setError('');
     try {
-      // Save first
       const payload = {
         ...billInfo,
         items: items.map(it => ({
@@ -87,7 +87,6 @@ export default function ReviewBill() {
         })),
       };
       await billAPI.update(id, payload);
-      // Then compare
       await billAPI.compare(id, billInfo);
       navigate(`/results/${id}`);
     } catch (err) {
@@ -104,15 +103,14 @@ export default function ReviewBill() {
 
   return (
     <div>
-      <h2 className="mb-2">Review & Edit Bill</h2>
-      <p className="text-muted mb-2">Check the extracted line items against your bill. Edit any incorrect amounts or descriptions.</p>
+      <h1 className="page-title">Review & Edit Bill</h1>
+      <p className="page-subtitle">Check the extracted line items against your bill. Hover over medical terms for plain-English explanations.</p>
 
       {error && <div className="alert alert-danger">{error}</div>}
 
       {sumCheck && !sumCheck.matches && (
         <div className="alert alert-warning">
-          <strong>Sum mismatch:</strong> The line items add up to {formatRupees(sumCheck.computed_total_paise)}
-          but the printed total is {formatRupees(sumCheck.printed_total_paise)}. Please review and correct.
+          <strong>Sum mismatch:</strong> The line items add up to {formatRupees(sumCheck.computed_total_paise)} but the printed total is {formatRupees(sumCheck.printed_total_paise)}. Please review and correct.
         </div>
       )}
 
@@ -120,19 +118,15 @@ export default function ReviewBill() {
         <div className="card-header">Bill Details</div>
         <div className="form-group">
           <label>Hospital Name</label>
-          <input type="text" value={billInfo.hospital_name}
-            onChange={(e) => setBillInfo({ ...billInfo, hospital_name: e.target.value })}
-            placeholder="Hospital name" />
+          <input type="text" value={billInfo.hospital_name} onChange={(e) => setBillInfo({ ...billInfo, hospital_name: e.target.value })} placeholder="Hospital name" />
         </div>
         <div className="form-group">
           <label>Bill Date</label>
-          <input type="date" value={billInfo.bill_date}
-            onChange={(e) => setBillInfo({ ...billInfo, bill_date: e.target.value })} />
+          <input type="date" value={billInfo.bill_date} onChange={(e) => setBillInfo({ ...billInfo, bill_date: e.target.value })} />
         </div>
         <div className="form-group">
           <label>Room Category</label>
-          <select value={billInfo.room_category}
-            onChange={(e) => setBillInfo({ ...billInfo, room_category: e.target.value })}>
+          <select value={billInfo.room_category} onChange={(e) => setBillInfo({ ...billInfo, room_category: e.target.value })}>
             <option value="general">General</option>
             <option value="semi_private">Semi-Private</option>
             <option value="private">Private</option>
@@ -148,6 +142,7 @@ export default function ReviewBill() {
             Computed Total: ₹{computedTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </span>
         </div>
+
         <table className="bill-items-table">
           <thead>
             <tr>
@@ -162,20 +157,22 @@ export default function ReviewBill() {
             {items.map((item, i) => (
               <tr key={i}>
                 <td>
-                  <input type="text" value={item.description}
-                    onChange={(e) => updateItem(i, 'description', e.target.value)} />
+                  <input 
+                    type="text" 
+                    value={item.description} 
+                    onChange={(e) => updateItem(i, 'description', e.target.value)} 
+                  />
+                  {/* Doctor-Speak Translator Component Integrated Here */}
+                  <DoctorTranslator itemName={item.description} />
                 </td>
                 <td>
-                  <input type="number" step="0.01" value={item.amount}
-                    onChange={(e) => updateItem(i, 'amount', e.target.value)} />
+                  <input type="number" step="0.01" value={item.amount} onChange={(e) => updateItem(i, 'amount', e.target.value)} />
                 </td>
                 <td>
-                  <input type="number" value={item.quantity}
-                    onChange={(e) => updateItem(i, 'quantity', e.target.value)} min="1" />
+                  <input type="number" value={item.quantity} onChange={(e) => updateItem(i, 'quantity', e.target.value)} min="1" />
                 </td>
                 <td>
-                  <select value={item.category}
-                    onChange={(e) => updateItem(i, 'category', e.target.value)}>
+                  <select value={item.category} onChange={(e) => updateItem(i, 'category', e.target.value)}>
                     <option value="room">Room</option>
                     <option value="doctor_fees">Doctor Fees</option>
                     <option value="nursing">Nursing</option>
@@ -195,12 +192,13 @@ export default function ReviewBill() {
             ))}
           </tbody>
         </table>
+
         <button type="button" className="btn btn-secondary mt-1" onClick={addItem}>+ Add Item</button>
       </div>
 
       <div className="flex gap-1">
-        <button className="btn btn-primary btn-block btn-lg" onClick={handleCompare} disabled={saving}>
-          {saving ? 'Comparing...' : 'Compare with Peers'}
+        <button className="btn btn-accent btn-block btn-lg" onClick={handleCompare} disabled={saving}>
+          {saving ? '⏳ Comparing…' : '📊 Compare with Peers →'}
         </button>
       </div>
     </div>
