@@ -107,9 +107,26 @@ class BillConfirmSerializer(serializers.Serializer):
 
 
 class HospitalSerializer(serializers.ModelSerializer):
+    normalized_name = serializers.CharField(required=False)
+
     class Meta:
         model = Hospital
-        fields = ('id', 'name', 'normalized_name', 'tier', 'city', 'active')
+        fields = ('id', 'name', 'normalized_name', 'tier', 'city', 'active', 'data_source')
+        extra_kwargs = {
+            'normalized_name': {'required': False},
+            'data_source':     {'required': False},
+        }
+
+    def validate(self, data):
+        # Auto-generate normalized_name from name if not provided
+        if 'name' in data and not data.get('normalized_name'):
+            data['normalized_name'] = data['name'].lower().strip()
+        return data
+
+    def create(self, validated_data):
+        validated_data.setdefault('data_source', 'admin_added')
+        validated_data.setdefault('active', True)
+        return super().create(validated_data)
 
 
 class CategoryMapSerializer(serializers.ModelSerializer):
