@@ -1274,3 +1274,10 @@ tbody tr:last-child td { border-bottom: none; }
   .hosp-cost-pill { min-width: 60px; }
   .hosp-cost-pill .pill-price { font-size: .78rem; }
 }
+
+/* ── Print styles ── */
+@media print {
+  .navbar, .btn, .alert-info, .card:last-child { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; }
+}

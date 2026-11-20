@@ -182,6 +182,31 @@ export default function Dashboard() {
         </span>
       </div>
 
+      {/* ── Personal stats strip ── */}
+      {bills.length > 0 && (() => {
+        const totalFlags    = bills.reduce((sum, b) => sum + (b.flags?.length || 0), 0);
+        const comparedCount = bills.filter(b => b.comparison_result !== null).length;
+        return (
+          <div className="stats-grid" style={{ marginBottom: '2rem' }}>
+            <div className="stat-card">
+              <span className="stat-icon">📋</span>
+              <div className="stat-value">{bills.length}</div>
+              <div className="stat-label">Bills uploaded</div>
+            </div>
+            <div className="stat-card">
+              <span className="stat-icon">🚩</span>
+              <div className="stat-value">{totalFlags}</div>
+              <div className="stat-label">Flags found</div>
+            </div>
+            <div className="stat-card">
+              <span className="stat-icon">📊</span>
+              <div className="stat-value">{comparedCount}</div>
+              <div className="stat-label">Bills compared</div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* ══════════════════════════════════════
           SECTION 1: Your Bills
       ══════════════════════════════════════ */}
@@ -194,14 +219,47 @@ export default function Dashboard() {
         </div>
 
         {bills.length === 0 ? (
-          <div className="empty-state">
-            <div className="empty-emoji">🏥</div>
-            <h3>No bills uploaded yet</h3>
-            <p>Upload your normal-delivery hospital bill to compare charges with peer hospitals.</p>
-            <Link to="/upload" className="btn btn-primary btn-lg" style={{ marginTop: '.75rem' }}>
-              📤 Upload Your First Bill
-            </Link>
-          </div>
+          <>
+            {/* How it works strip */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+              {[
+                { emoji: '📤', step: '1', title: 'Upload',    desc: 'Photograph or PDF your hospital bill' },
+                { emoji: '🔍', step: '2', title: 'Review',    desc: 'Confirm line items and categories' },
+                { emoji: '📊', step: '3', title: 'Compare',   desc: 'See how charges compare to peer hospitals' },
+                { emoji: '💡', step: '4', title: 'Understand', desc: 'Get plain-language flags and questions to ask' },
+              ].map(s => (
+                <div key={s.step} style={{
+                  flex: '1 1 140px',
+                  background: 'var(--primary-light)',
+                  borderRadius: 'var(--r-organic-sm)',
+                  padding: '1rem',
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '.4rem',
+                }}>
+                  <span style={{ fontSize: '1.75rem' }}>{s.emoji}</span>
+                  <span style={{
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 800,
+                    fontSize: '.9rem',
+                    color: 'var(--primary)',
+                  }}>{s.title}</span>
+                  <span style={{ fontSize: '.78rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>{s.desc}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="empty-state">
+              <div className="empty-emoji">🏥</div>
+              <h3>No bills uploaded yet</h3>
+              <p>Upload your normal-delivery hospital bill to compare charges with peer hospitals.</p>
+              <Link to="/upload" className="btn btn-primary btn-lg" style={{ marginTop: '.75rem' }}>
+                📤 Upload Your First Bill
+              </Link>
+            </div>
+          </>
         ) : (
           bills.map(bill => {
             const st        = statusConfig[bill.status] || statusConfig.pending;

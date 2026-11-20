@@ -3,6 +3,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { billAPI } from '../../services/api';
 import BillingCounterScript from '../../components/BillingCounterScript';
 
+const printStyles = `
+@media print {
+  .navbar, .btn, .alert-info, .card:last-child { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .card { box-shadow: none !important; border: 1px solid #ccc !important; }
+  .results-action-bar { display: none !important; }
+  .results-bottom-nav { display: none !important; }
+}
+`;
+
 // ── Helpers ───────────────────────────────────────────────────────────────
 const fmtRs = p => p != null
   ? `₹${(p / 100).toLocaleString('en-IN', { minimumFractionDigits: 2 })}`
@@ -153,6 +163,114 @@ function ItemComparisonRow({ item }) {
         </div>
       </div>
 
+      {/* ── Visual range bar ── */}
+      {(() => {
+        const min  = item.peer_min_paise  || 0;
+        const max  = item.peer_max_paise  || 1;
+        const p25  = item.percentiles?.[25] ?? min;
+        const p75  = item.percentiles?.[75] ?? max;
+        const avg  = item.peer_average_paise ?? min;
+        const you  = item.uploaded_amount_paise ?? min;
+        const span = max - min || 1;
+
+        const pct = v => `${Math.min(100, Math.max(0, ((v - min) / span) * 100)).toFixed(2)}%`;
+
+        const labels = [
+          { v: min, text: 'Min',  color: 'var(--gray-500)' },
+          { v: p25, text: '25th', color: 'var(--sage-dark)' },
+          { v: avg, text: 'Avg',  color: 'var(--primary)' },
+          { v: p75, text: '75th', color: 'var(--sage-dark)' },
+          { v: max, text: 'Max',  color: 'var(--gray-500)' },
+        ];
+
+        return (
+          <div style={{ marginTop: '1rem', userSelect: 'none' }}>
+            {/* Track */}
+            <div style={{ position: 'relative', height: 10, background: 'var(--gray-200)', borderRadius: 999 }}>
+              {/* Interquartile shaded band */}
+              <div style={{
+                position: 'absolute',
+                left:  pct(p25),
+                width: pct(p75 - p25 + min),
+                height: '100%',
+                background: 'linear-gradient(90deg, var(--sage-light), var(--sage))',
+                borderRadius: 999,
+                opacity: .85,
+              }} />
+              {/* Peer average marker */}
+              <div title={`Peer avg: ${fmtRs(avg)}`} style={{
+                position: 'absolute',
+                left: pct(avg),
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 12,
+                height: 12,
+                borderRadius: '50%',
+                background: 'var(--primary)',
+                border: '2px solid var(--white)',
+                boxShadow: '0 1px 4px rgba(0,0,0,.25)',
+                zIndex: 2,
+              }} />
+              {/* Your bill marker */}
+              <div title={`Your bill: ${fmtRs(you)}`} style={{
+                position: 'absolute',
+                left: pct(you),
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: 14,
+                height: 14,
+                borderRadius: '50%',
+                background: 'var(--accent)',
+                border: '2px solid var(--white)',
+                boxShadow: '0 1px 6px rgba(0,0,0,.3)',
+                zIndex: 3,
+              }} />
+            </div>
+
+            {/* Labels row */}
+            <div style={{ position: 'relative', height: 32, marginTop: 4 }}>
+              {labels.map(({ v, text, color }, i) => {
+                const left = pct(v);
+                return (
+                  <div key={i} style={{
+                    position: 'absolute',
+                    left,
+                    transform: 'translateX(-50%)',
+                    textAlign: 'center',
+                    fontSize: '.68rem',
+                    fontWeight: 700,
+                    color,
+                    whiteSpace: 'nowrap',
+                    lineHeight: 1.2,
+                  }}>
+                    <div style={{ marginBottom: 1 }}>{text}</div>
+                    <div style={{ fontWeight: 600, fontSize: '.64rem', color: 'var(--text-muted)' }}>
+                      {fmtRs(v)}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Legend */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '.25rem', fontSize: '.72rem', color: 'var(--text-muted)' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '.3rem' }}>
+                <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: 'var(--accent)', border: '1.5px solid var(--white)', boxShadow: '0 1px 3px rgba(0,0,0,.2)' }} />
+                Your bill
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '.3rem' }}>
+                <span style={{ display: 'inline-block', width: 10, height: 10, borderRadius: '50%', background: 'var(--primary)', border: '1.5px solid var(--white)', boxShadow: '0 1px 3px rgba(0,0,0,.2)' }} />
+                Peer avg
+              </span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '.3rem' }}>
+                <span style={{ display: 'inline-block', width: 24, height: 8, borderRadius: 4, background: 'var(--sage)', opacity: .85 }} />
+                25th–75th %ile
+              </span>
+            </div>
+          </div>
+        );
+      })()}
+
       <div style={{ fontSize: '.78rem', color: 'var(--text-muted)', marginTop: '.6rem' }}>
         {item.comparison_status_label} · Based on {item.peer_count} comparable record{item.peer_count !== 1 ? 's' : ''}
       </div>
@@ -174,6 +292,7 @@ export default function Results() {
   const [consentResult, setConsentResult] = useState(null);
   const [submitting, setSubmitting]   = useState(false);
   const [showScript, setShowScript]   = useState(false);
+  const [reRunning, setReRunning]     = useState(false);
 
   useEffect(() => { loadBill(); }, [id]);
 
@@ -211,6 +330,21 @@ export default function Results() {
     }
   };
 
+  const handleReRun = async () => {
+    setReRunning(true);
+    setError('');
+    try {
+      const cmpRes = await billAPI.compare(id, {});
+      setBill(cmpRes.data.bill);
+      setComparison(cmpRes.data.comparison || {});
+      setFlags(cmpRes.data.flags || []);
+    } catch (err) {
+      setError('Re-run failed. Please try again.');
+    } finally {
+      setReRunning(false);
+    }
+  };
+
   if (loading) return (
     <div className="loading-overlay">
       <div className="spinner" />
@@ -241,8 +375,11 @@ export default function Results() {
   return (
     <div>
 
+      {/* ── Print style injection ── */}
+      <style>{printStyles}</style>
+
       {/* ── Page header ── */}
-      <div className="flex-between mb-2" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+      <div className="flex-between mb-2 results-action-bar" style={{ flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h1 className="page-title">Bill Comparison Results</h1>
           <p className="page-subtitle" style={{ margin: 0 }}>
@@ -250,16 +387,32 @@ export default function Results() {
           </p>
         </div>
 
-        {/* Billing Counter Script button — only show if there are flags or comparisons */}
-        {(flags.length > 0 || comparedCount > 0) && (
+        <div style={{ display: 'flex', gap: '.75rem', flexWrap: 'wrap', alignItems: 'center', flexShrink: 0 }}>
           <button
-            className="btn btn-accent btn-lg"
-            onClick={() => setShowScript(true)}
-            style={{ flexShrink: 0 }}
+            className="btn btn-secondary btn-sm"
+            onClick={handleReRun}
+            disabled={reRunning}
+            title="Re-fetch and recalculate the comparison"
           >
-            🏥 Prepare for Billing Desk
+            {reRunning ? '⏳ Re-running…' : '🔄 Re-run comparison'}
           </button>
-        )}
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={() => window.print()}
+            title="Print or save as PDF"
+          >
+            🖨️ Download Summary
+          </button>
+          {/* Billing Counter Script button — only show if there are flags or comparisons */}
+          {(flags.length > 0 || comparedCount > 0) && (
+            <button
+              className="btn btn-accent btn-lg"
+              onClick={() => setShowScript(true)}
+            >
+              🏥 Prepare for Billing Desk
+            </button>
+          )}
+        </div>
       </div>
 
       {error && <div className="alert alert-danger">{error}</div>}
@@ -487,7 +640,7 @@ export default function Results() {
       )}
 
       {/* ── Bottom nav ── */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem', paddingBottom: '2rem' }}>
+      <div className="results-bottom-nav" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem', paddingBottom: '2rem' }}>
         <button className="btn btn-secondary" onClick={() => navigate('/dashboard')}>
           ← Back to Dashboard
         </button>

@@ -19,6 +19,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import UserManagement from './pages/admin/UserManagement';
 import BillReview from './pages/admin/BillReview';
 import Monitoring from './pages/admin/Monitoring';
+import HospitalManagement from './pages/admin/HospitalManagement';
 
 function NavbarWrapper({ children }) {
   const location = useLocation();
@@ -73,6 +74,9 @@ export default function App() {
       } />
       <Route path="/admin/monitoring" element={
         <ProtectedRoute admin={true}><NavbarWrapper><Monitoring /></NavbarWrapper></ProtectedRoute>
+      } />
+      <Route path="/admin/hospitals" element={
+        <ProtectedRoute admin={true}><NavbarWrapper><HospitalManagement /></NavbarWrapper></ProtectedRoute>
       } />
 
       <Route path="*" element={<Navigate to="/login" replace />} />

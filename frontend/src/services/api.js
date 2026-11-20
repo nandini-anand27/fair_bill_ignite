@@ -52,15 +52,19 @@ export const billAPI = {
 };
 
 export const adminAPI = {
-  users:        ()           => api.get('/admin-panel/users/'),
-  toggleUser:   (id)         => api.patch(`/admin-panel/users/${id}/toggle-active/`),
-  deleteUser:   (id)         => api.delete(`/admin-panel/users/${id}/delete/`),
-  stats:        ()           => api.get('/admin-panel/users/stats/'),
-  pendingBills: ()           => api.get('/admin-panel/bills/pending/'),
-  allBills:     ()           => api.get('/admin-panel/bills/all/'),
-  approveBill:  (id)         => api.post(`/admin-panel/bills/${id}/approve/`),
-  rejectBill:   (id, reason) => api.post(`/admin-panel/bills/${id}/reject/`, { reason }),
-  auditLog:     ()           => api.get('/admin-panel/audit-log/'),
+  users:          ()           => api.get('/admin-panel/users/'),
+  toggleUser:     (id)         => api.patch(`/admin-panel/users/${id}/toggle-active/`),
+  deleteUser:     (id)         => api.delete(`/admin-panel/users/${id}/delete/`),
+  stats:          ()           => api.get('/admin-panel/users/stats/'),
+  pendingBills:   ()           => api.get('/admin-panel/bills/pending/'),
+  allBills:       ()           => api.get('/admin-panel/bills/all/'),
+  approveBill:    (id)         => api.post(`/admin-panel/bills/${id}/approve/`),
+  rejectBill:     (id, reason) => api.post(`/admin-panel/bills/${id}/reject/`, { reason }),
+  auditLog:       ()           => api.get('/admin-panel/audit-log/'),
+  hospitals:      ()           => api.get('/admin-panel/hospitals/'),
+  addHospital:    (data)       => api.post('/admin-panel/hospitals/', data),
+  deleteHospital: (id)         => api.delete(`/admin-panel/hospitals/${id}/`),
+  updateHospital: (id, data)   => api.put(`/admin-panel/hospitals/${id}/`, data),
 };
 
 export default api;

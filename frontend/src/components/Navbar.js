@@ -43,6 +43,7 @@ export default function Navbar() {
             <Link to="/admin/dashboard">Dashboard</Link>
             <Link to="/admin/users">Users</Link>
             <Link to="/admin/bills">Bills</Link>
+            <Link to="/admin/hospitals">Hospitals</Link>
             <Link to="/admin/monitoring">Audit Log</Link>
           </>
         ) : (
