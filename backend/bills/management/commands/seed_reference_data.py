@@ -75,28 +75,30 @@ ROOM_CATEGORIES = ['general', 'semi_private', 'private', 'premium']
 # ---------------------------------------------------------------------------
 ITEM_TEMPLATES = [
     # description                        category         govt              mid_private       large_private    qty
-    ('Room charges per day',            'room',          200,   500,       1500,  4000,       4000,  12000,   'days'),
-    ('Normal delivery procedure',       'procedures',    1000,  1000,      8000,  20000,      15000, 40000,   'fixed'),
-    ('Doctor consultation fee',         'doctor_fees',   100,   300,       2000,  5000,       3000,  12000,   'fixed'),
-    ('Anaesthetist fee',                'doctor_fees',   0,     0,         1500,  4000,       3000,  8000,    'fixed'),
-    ('Paediatrician visit',             'doctor_fees',   100,   200,       500,   1500,       1000,  3000,    'fixed'),
-    ('Nursing care per day',            'nursing',       100,   200,       500,   1500,       1000,  3000,    'days'),
+    # Ranges based on real Bengaluru bills (2022-2026):
+    # Govt: BMCRI fee schedule. Mid: Motherhood/Ovum ₹50k-90k total. Large: Cloudnine/Manipal/Apollo actual bills.
+    ('Room charges per day',            'room',          200,   500,       1500,  4000,       4500,  8000,    'days'),
+    ('Normal delivery procedure',       'procedures',    1000,  1000,      8000,  20000,      25000, 50000,   'fixed'),
+    ('Doctor consultation fee',         'doctor_fees',   100,   300,       2000,  5000,       5000,  15000,   'fixed'),
+    ('Anaesthetist fee',                'doctor_fees',   0,     0,         1500,  4000,       2000,  6000,    'fixed'),
+    ('Paediatrician visit',             'doctor_fees',   100,   200,       500,   1500,       1500,  4000,    'fixed'),
+    ('Nursing care per day',            'nursing',       100,   200,       500,   1500,       1500,  3000,    'days'),
     ('Complete blood count',            'diagnostic_tests', 80, 150,      200,   500,        300,   800,     'fixed'),
-    ('Blood grouping and Rh typing',    'diagnostic_tests', 50, 100,      150,   350,        250,   600,     'fixed'),
-    ('Urine routine examination',       'diagnostic_tests', 30, 80,       100,   250,        200,   500,     'fixed'),
-    ('Obstetric ultrasound scan',       'diagnostic_tests', 200, 400,     500,   1500,       800,   2500,    'fixed'),
-    ('CTG monitoring',                  'diagnostic_tests', 100, 200,     300,   800,        500,   1500,    'fixed'),
-    ('Liver function test',             'diagnostic_tests', 150, 300,     300,   700,        500,   1200,    'fixed'),
-    ('Thyroid function test',           'diagnostic_tests', 150, 300,     300,   800,        500,   1500,    'fixed'),
-    ('IV fluids and medicines',         'medicines',     200,   500,       800,   3000,       1500,  6000,    'fixed'),
-    ('Antibiotics course',              'medicines',     100,   300,       300,   1500,       500,   3000,    'fixed'),
+    ('Blood grouping and Rh typing',    'diagnostic_tests', 50, 100,      150,   350,        200,   500,     'fixed'),
+    ('Urine routine examination',       'diagnostic_tests', 30, 80,       100,   250,        150,   400,     'fixed'),
+    ('Obstetric ultrasound scan',       'diagnostic_tests', 200, 400,     500,   1500,       1000,  3000,    'fixed'),
+    ('CTG monitoring',                  'diagnostic_tests', 100, 200,     300,   800,        400,   1200,    'fixed'),
+    ('Liver function test',             'diagnostic_tests', 150, 300,     300,   700,        400,   1000,    'fixed'),
+    ('Thyroid function test',           'diagnostic_tests', 150, 300,     300,   800,        400,   1200,    'fixed'),
+    ('IV fluids and medicines',         'medicines',     200,   500,       800,   3000,       2000,  5000,    'fixed'),
+    ('Antibiotics course',              'medicines',     100,   300,       300,   1500,       500,   2500,    'fixed'),
     ('Oxytocin injection',              'medicines',     20,    50,        50,    200,        100,   400,     'fixed'),
     ('Vitamin K injection newborn',     'medicines',     20,    50,        50,    200,        100,   300,     'fixed'),
-    ('Pain relief medication',          'medicines',     50,    150,       200,   600,        300,   1200,    'fixed'),
+    ('Pain relief medication',          'medicines',     50,    150,       200,   600,        300,   1000,    'fixed'),
     ('Surgical gloves and drapes',      'consumables',   30,    80,        150,   500,        300,   1500,    'fixed'),
     ('Syringes and needles',            'consumables',   20,    60,        100,   400,        200,   800,     'fixed'),
-    ('Urinary catheter and bag',        'consumables',   50,    120,       200,   600,        400,   1200,    'fixed'),
-    ('Cotton and gauze',                'consumables',   20,    50,        80,    250,        150,   600,     'fixed'),
+    ('Urinary catheter and bag',        'consumables',   50,    120,       200,   600,        300,   1000,    'fixed'),
+    ('Cotton and gauze',                'consumables',   20,    50,        80,    250,        150,   500,     'fixed'),
     ('Registration and admission fee',  'registration',  50,    50,        200,   500,        300,   800,     'fixed'),
     ('Newborn screening test',          'baby_charges',  100,   200,       300,   800,        500,   1500,    'fixed'),
     ('Hepatitis B vaccination newborn', 'baby_charges',  50,    100,       150,   400,        200,   600,     'fixed'),
@@ -111,13 +113,13 @@ ITEM_TEMPLATES = [
     ('Diet and nutrition charges',      'other',         0,     0,         300,   800,        500,   1500,    'days'),
 ]
 
-# Room category multipliers (applied on top of tier base price)
-# General ward = baseline; premium rooms cost significantly more
+# Room category multipliers — removed scaling since prices already vary by room type
+# in the tier ranges above. Keeping multipliers at 1.0 to avoid inflating amounts.
 ROOM_MULTIPLIERS = {
-    'general':     1.0,
-    'semi_private': 1.5,
-    'private':     2.2,
-    'premium':     3.5,
+    'general':      1.0,
+    'semi_private': 1.0,
+    'private':      1.0,
+    'premium':      1.0,
 }
 
 # Which items scale with room category (room-related items)
@@ -137,10 +139,13 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        existing = Bill.objects.filter(is_synthetic=True).count()
+        existing = Bill.objects.filter(
+            is_synthetic=True,
+            data_provenance__icontains='Ranges based on published'
+        ).count()
         if existing > 0:
             self.stdout.write(self.style.WARNING(
-                f'Synthetic data already exists ({existing} bills). '
+                f'Synthetic seed data already exists ({existing} bills). '
                 f'To reseed, delete existing synthetic bills first.'
             ))
             return

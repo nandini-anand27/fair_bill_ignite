@@ -61,11 +61,16 @@ export default function HospitalManagement() {
       setShowForm(false);
       notify(`Hospital "${res.data.name}" added.`);
     } catch (err) {
-      const msg = err.response?.data?.name?.[0]
-        || err.response?.data?.normalized_name?.[0]
-        || err.response?.data?.detail
+      const data = err.response?.data;
+      const status = err.response?.status;
+      const msg = data?.name?.[0]
+        || data?.normalized_name?.[0]
+        || data?.non_field_errors?.[0]
+        || data?.detail
+        || (data ? JSON.stringify(data) : null)
+        || err.message
         || 'Failed to add hospital.';
-      notify(msg, 'danger');
+      notify(`${status ? `[${status}] ` : ''}${msg}`, 'danger');
     } finally {
       setSaving(false);
     }
