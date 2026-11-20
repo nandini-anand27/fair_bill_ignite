@@ -123,9 +123,10 @@ The frontend runs on `http://localhost:3000`
 - Audit log with colour-coded action badges, actor/action search
 
 ### Benchmark Data
-- 75 synthetic reference bills with price ranges sourced from real Bengaluru hospital data (BMCRI fee schedule, Pristyn Care, community reports 2022–2024)
+- 75 synthetic reference bills with price ranges sourced from real Bengaluru hospital data (BMCRI fee schedule, Cloudnine/Manipal/Apollo Cradle actual bills, community reports 2022–2024). Room category multipliers removed — prices reflect real per-day rates (large private room: ₹4,500–₹8,000/day).
 - 18 sample bills extracted from real hospital bill documents (Victoria, Vani Vilas, Cloudnine, Apollo Cradle, Manipal, Motherhood, Fortis, Aster, Ovum, Sagar)
 - 27 real Bengaluru hospitals in the benchmark database
+- Item key normalization maps common bill description variants (e.g. "Room Rent – Deluxe Room") to canonical benchmark keys (e.g. "room charges per day") so comparisons always find matches
 
 ### PRISM Requirements Implemented
 - FR-01: Bill upload with line items
@@ -136,7 +137,7 @@ The frontend runs on `http://localhost:3000`
 - FR-06: Item categorisation (room, doctor fees, nursing, medicines, consumables, baby charges, tests, other)
 - FR-07: Peer group comparison (same procedure, tier, room category, city)
 - FR-08: Typical ranges (25th–75th percentile) with visual bar
-- FR-09: Data sufficiency rules (<5 bills: no range, 5–9: limited data, 10+: normal)
+- FR-09: Data sufficiency rules (<3 bills: no range, 3–9: limited data, 10+: normal)
 - FR-10: Flag rules (duplicates, high amount, unusual item, sum mismatch, package inclusion)
 - FR-11: Plain-language explanations with suggested questions (no banned terms)
 - FR-12: Price-only notice on results
