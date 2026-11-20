@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from django.db import transaction
+from datetime import date
 from django.utils import timezone
 from .models import Bill, BillItem, Hospital, CategoryMap, HospitalPackage, AuditLog
 from .serializers import (
@@ -220,6 +221,17 @@ class BillCompareView(generics.GenericAPIView):
         except Bill.DoesNotExist:
             return Response({'error': 'Bill not found.'}, status=status.HTTP_404_NOT_FOUND)
 
+        # Warn if bill is older than 3 years — comparison will be unreliable
+        stale_warning = None
+        if bill.bill_date:
+            age_years = (date.today() - bill.bill_date).days / 365
+            if age_years > 3:
+                stale_warning = (
+                    f'This bill is from {bill.bill_date.year}, which is more than 3 years ago. '
+                    f'Our reference data covers recent bills (2022–present), so price comparisons '
+                    f'may not reflect what this bill would cost today.'
+                )
+
         # Resolve hospital (FR-05)
         if bill.hospital_name and not bill.hospital_id:
             hospital, tier = resolve_hospital(bill.hospital_name)
@@ -261,6 +273,7 @@ class BillCompareView(generics.GenericAPIView):
             'comparison': comparison_result,
             'flags': explained_flags,
             'notice': 'This comparison is about price only and is not medical or legal advice.',
+            'stale_warning': stale_warning,
         }, status=status.HTTP_200_OK)
 
 
@@ -371,17 +384,24 @@ class BillImageUploadView(generics.GenericAPIView):
         result     = extract_bill_from_file(file_bytes, file_obj.name)
 
         if not result.get('success'):
+            # Return 200 so the frontend handles it gracefully instead of throwing
             return Response(
-                {'error': result.get('error', 'Could not read the file.'), 'items': []},
-                status=status.HTTP_422_UNPROCESSABLE_ENTITY
+                {
+                    'items': [],
+                    'item_count': 0,
+                    'method': 'failed',
+                    'message': result.get('error', 'Could not read the file. Please add items manually.'),
+                },
+                status=status.HTTP_200_OK
             )
 
         return Response({
-            'items':       result.get('items', []),
-            'method':      result.get('method', 'unknown'),
-            'page_count':  result.get('page_count'),
-            'message':     result.get('message'),
-            'item_count':  len(result.get('items', [])),
+            'items':      result.get('items', []),
+            'metadata':   result.get('metadata', {}),
+            'method':     result.get('method', 'unknown'),
+            'page_count': result.get('page_count'),
+            'message':    result.get('message'),
+            'item_count': len(result.get('items', [])),
             'note': (
                 'These items were automatically extracted from your bill. '
                 'Please review and correct any errors before submitting.'

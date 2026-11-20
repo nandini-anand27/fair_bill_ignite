@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useDarkMode from '../hooks/useDarkMode';
 
 export default function Navbar() {
   const navigate  = useNavigate();
@@ -8,6 +9,7 @@ export default function Navbar() {
   const user      = userStr ? JSON.parse(userStr) : null;
   const isAdmin   = user && (user.is_admin || user.is_staff);
   const isAuthPage = ['/login', '/register', '/admin-login'].includes(location.pathname);
+  const [dark, setDark] = useDarkMode();
 
   if (!user || isAuthPage) return null;
 
@@ -50,6 +52,16 @@ export default function Navbar() {
             <Link to="/delete-bill">Delete Contribution</Link>
           </>
         )}
+
+        {/* Dark mode toggle */}
+        <label className="dark-toggle-wrap" title={dark ? 'Switch to light mode' : 'Switch to dark mode'}>
+          <button
+            className="dark-toggle"
+            onClick={() => setDark(d => !d)}
+            aria-label="Toggle dark mode"
+          />
+          <span>{dark ? '🌙' : '☀️'}</span>
+        </label>
 
         <div className="navbar-user">
           <span className="user-pill" title={user.email}>{user.email}</span>

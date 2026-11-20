@@ -31,9 +31,11 @@ export default function ReviewBill() {
         category: it.category,
       })));
       setBillInfo({
-        hospital_name: res.data.hospital_name || '',
-        bill_date: res.data.bill_date || '',
-        room_category: res.data.room_category || 'general',
+        hospital_name:  res.data.hospital_name  || '',
+        bill_date:      res.data.bill_date       || '',
+        room_category:  res.data.room_category   || 'general',
+        city:           res.data.city            || 'Bengaluru',
+        hospital_tier:  res.data.hospital_tier   || '',
       });
     } catch (err) {
       setError('Failed to load bill.');
@@ -87,7 +89,11 @@ export default function ReviewBill() {
         })),
       };
       await billAPI.update(id, payload);
-      await billAPI.compare(id, billInfo);
+      await billAPI.compare(id, {
+        city:          billInfo.city          || 'Bengaluru',
+        hospital_tier: billInfo.hospital_tier || '',
+        room_category: billInfo.room_category || 'general',
+      });
       navigate(`/results/${id}`);
     } catch (err) {
       setError(err.response?.data?.error || 'Comparison failed. Please try again.');
@@ -125,12 +131,30 @@ export default function ReviewBill() {
           <input type="date" value={billInfo.bill_date} onChange={(e) => setBillInfo({ ...billInfo, bill_date: e.target.value })} />
         </div>
         <div className="form-group">
+          <label>City</label>
+          <select value={billInfo.city || 'Bengaluru'} onChange={(e) => setBillInfo({ ...billInfo, city: e.target.value })}>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Mysuru">Mysuru</option>
+            <option value="Hubballi">Hubballi</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div className="form-group">
           <label>Room Category</label>
           <select value={billInfo.room_category} onChange={(e) => setBillInfo({ ...billInfo, room_category: e.target.value })}>
-            <option value="general">General</option>
+            <option value="general">General Ward</option>
             <option value="semi_private">Semi-Private</option>
             <option value="private">Private</option>
             <option value="premium">Premium</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Hospital Type</label>
+          <select value={billInfo.hospital_tier || ''} onChange={(e) => setBillInfo({ ...billInfo, hospital_tier: e.target.value })}>
+            <option value="">Unknown</option>
+            <option value="government">Government / Public</option>
+            <option value="mid_private">Mid-sized Private</option>
+            <option value="large_private">Large Private</option>
           </select>
         </div>
       </div>

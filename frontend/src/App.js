@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 // User pages
 import Login from './pages/user/Login';
 import Register from './pages/user/Register';
+import Landing from './pages/Landing';
 import Dashboard from './pages/user/Dashboard';
 import UploadBill from './pages/user/UploadBill';
 import ReviewBill from './pages/user/ReviewBill';
@@ -34,7 +35,7 @@ function NavbarWrapper({ children }) {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<Landing />} />
 
       {/* User Auth */}
       <Route path="/login" element={<Login />} />

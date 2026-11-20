@@ -8,6 +8,12 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-!cf^&9x@kq#7=+j+5$h8!
 
 DEBUG = config('DEBUG', default=True, cast=bool)
 
+# Gemini API — used by bills/image_extractor.py
+os.environ.setdefault('GEMINI_API_KEY', config('GEMINI_API_KEY', default=''))
+
+# Groq API — used by bills/image_extractor.py
+os.environ.setdefault('GROQ_API_KEY', config('GROQ_API_KEY', default=''))
+
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 INSTALLED_APPS = [

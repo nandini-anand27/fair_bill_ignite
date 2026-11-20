@@ -87,8 +87,15 @@ export default function UploadBill() {
       const data = res.data;
 
       if (data.message) {
-        // OCR unavailable — show friendly message
-        setExtractMsg(data.message);
+        // Gemini unavailable or no items found — show the actual reason
+        const isApiDown = data.message.toLowerCase().includes('unavailable') ||
+                          data.message.toLowerCase().includes('overloaded') ||
+                          data.message.toLowerCase().includes('try again');
+        setExtractMsg(
+          isApiDown
+            ? '⏳ The scanning service is temporarily busy. You can try again in a minute, or add your items manually below.'
+            : data.message
+        );
       } else if (data.item_count > 0) {
         // Populate items from extraction
         setItems(data.items.map(it => ({
@@ -97,6 +104,18 @@ export default function UploadBill() {
           quantity:    it.quantity || 1,
           category:    it.category || 'other',
         })));
+        // Populate bill metadata from extraction
+        const meta = data.metadata || {};
+        if (meta.hospital_name || meta.bill_date || meta.printed_total) {
+          setBillInfo(prev => ({
+            ...prev,
+            hospital_name:  meta.hospital_name  || prev.hospital_name,
+            bill_date:      meta.bill_date       || prev.bill_date,
+            room_category:  meta.room_category   || prev.room_category,
+            printed_total:  meta.printed_total   ? (meta.printed_total / 1).toString() : prev.printed_total,
+            city:           meta.city            || prev.city,
+          }));
+        }
         setExtractMsg(
           `✅ ${data.item_count} line item${data.item_count > 1 ? 's' : ''} extracted automatically. ` +
           `Please review and correct any errors.`
